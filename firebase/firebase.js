@@ -1,14 +1,11 @@
-const config = require('../utils/config')
-const {initializeApp, applicationDefault} = require("firebase-admin/app");
+const { initializeApp, applicationDefault } = require("firebase-admin/app");
 
-const {getFirestore} = require('firebase-admin/firestore')
+const { getFirestore } = require("firebase-admin/firestore");
 
-initializeApp({
+const app = initializeApp({
   credential: applicationDefault(),
- 
-
 });
 
-const db = getFirestore();
+const db = getFirestore(app);
 
 module.exports = db;

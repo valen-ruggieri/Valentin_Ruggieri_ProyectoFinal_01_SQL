@@ -10,23 +10,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CARRITO</title>
+    <title>productos</title>
 </head>
 <body class="bg-dark m-5">
-<h1 class="text-center  text-secondary  text-opacity-10">CARRITO</h1>
-<a href="http://localhost:8080/api/carrito/delete" class="badge text-decoration-none bg-danger text-light">eliminarcarrito 🗑</a>
- <a href="http://localhost:8080/api/productos/tienda" class="badge text-decoration-none bg-primary text-light">TIENDA 🎁</a>
-<% if(productosCarrito.length){%> 
+<h1 class="text-center  text-secondary  text-opacity-10">Productos</h1>
+<a  href="http://localhost:8080/api/carrito/productos" class="badge text-decoration-none bg-success text-light">Carrito 🛒</a>   
+
+<% if(productos.length){%> 
         <div class="d-flex flex-row row ms-2 mb-5 bg-dark">
-        <% productosCarrito.forEach((productosCarrito ,key) => { %> 
+        <% productos.forEach((producto ,key) => { %> 
             <div class="card  m-3 bg-secondary bg-opacity-25  rounded-bottom rounded-3 " style="width: 15rem;">
              
                 <div class="card-body   ">
-                  <h5 class="card-title text-center bg-primary rounded-3 pb-1"><a  class="text-decoration-none text-light "href="http://localhost:8080/api/productos/productosCarrito/<%= productosCarrito.id %>"><%= productosCarrito.titulo %></a></h5>
+                  <h5 class="card-title text-center bg-primary rounded-3 pb-1"><a  class="text-decoration-none text-light "href="http://localhost:8080/api/productos/producto/<%= producto.id %>"><%= producto.titulo %></a></h5>
                   <p class=" bg-secondary bg-opacity-25 p-2 text-light rounded-3"><small >Lorem ipsum dolor sit amet consectetur adipisicing elit.</small></p>
-                  <p class=" text-center badge bg-success w-50 text-light me-4">$<%= productosCarrito.precio %> </p>
+                  <p class=" text-center badge bg-success w-50 text-light me-4">$<%= producto.precio %> </p>
                   <b class="  badge bg-secondary bg-opacity-25 text-light pe-2 ps-2 ms-3">ID :  <%= key+1 %></b>
-                 <a href="http://localhost:8080/api/carrito/delete/<%= productosCarrito.id %> " class="badge text-decoration-none bg-danger text-light ">🗑</a>
+                 <a href="http://localhost:8080/api/carrito/add/<%= producto.producto  %> " class="badge text-decoration-none bg-primary text-light ">ADD TO CAR</a>
                 </div>
               </div>
              

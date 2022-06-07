@@ -10,66 +10,88 @@ const config = require("../../utils/config");
 
 routerProducts.use(express.static(path.join(__dirname + "/public")));
 
+// $                   CLIENTE
 
-//get firestore cliente
-routerProducts.get("/productos/all", async(req, res) => {
- 
-   //database.ref('products').once('value',(snapshot)=>{
- 
-      const querySnapshot = await database.collection('Productos').get()
-     const productos = querySnapshot.docs.map(doc => ({
-       id : doc.id,
-      titulo: doc.data().titulo,
-      precio: doc.data().precio}))
-      logger.info(productos)
-      res.render('productosCliente.ejs',{productos})
-  })
+// $   Puede ver y agregar productos al carrito como asi tambien logearse
 
+// >| get productos
+routerProducts.get("/productos/tienda", async (req, res) => {
+  const querySnapshot = await database.collection("Productos").get();
+  const productos = querySnapshot.docs.map((doc) => ({
+    id: doc.id,
+    titulo: doc.data().titulo,
+    precio: doc.data().precioFormat,
+    producto: [doc.data().titulo, doc.data().precioFormat],
+  }));
+  res.render("productosClientes.ejs", { productos });
+});
 
+// >| get id productos
 
-//delete firestore
-routerProducts.get("/delete/:id", (req, res) => {
-  const productoId = req.params.id
-  //database.ref('products/' + productoId).remove()
-  logger.info(`Eliminaste el producto id : ${productoId}`)
-  res.redirect('/')
- })
+//%                   ADMINISTRADOR
 
+//%     Puede agregar, editar y borrar productos como asi tambien logearse
 
+// >| get productos
+routerProducts.get("/productos/all", async (req, res) => {
+  const querySnapshot = await database.collection("Productos").get();
+  const productos = querySnapshot.docs.map((doc) => ({
+    id: doc.id,
+    titulo: doc.data().titulo,
+    precio: doc.data().precioFormat,
+  }));
+  res.render("productosAdmin.ejs", { productos });
+});
 
-// routerProducts.get("/productos/:id", (req, res) => {
-//   const id = req.params.id;
-//   const productoId = productos.filter((producto) => producto.id === id);
-// });
+// >| get id productos
 
-//post firestore administrador
+routerProducts.get("/productos/producto/:id", async (req, res) => {
+  const productoFR = await database
+    .collection("Productos")
+    .doc(req.params.id)
+    .get();
+  const productoId = {
+    id: productoFR.id,
+    titulo: productoFR.data().titulo,
+    precio: productoFR.data().precioFormat,
+  };
+  res.render("productoid.ejs", { productoId });
+});
 
-routerProducts.post("/productos/form", (req, res) => {
-  const {titulo,precio} = req.body;
-  logger.info(titulo,precio)
- database.collection("Productos").add({titulo,precio});
-  res.redirect("/api/productos/form");
+// >| delete producto
+
+routerProducts.get("/productos/delete/:id", (req, res) => {
+  database.collection("Productos").doc(req.params.id).delete();
+  res.redirect("/api/productos/all");
+});
+
+// >| ruta post de productos
+routerProducts.post("/productos/form", async (req, res) => {
+  const { titulo, precio } = req.body;
+  const precioFormat = Number(precio);
+  await database.collection("Productos").add({ titulo, precioFormat });
+  res.redirect("/api/productos/all");
 });
 
 routerProducts.get("/productos/form", (req, res) => {
-  
-  res.render('tienda.ejs')
- 
+  res.render("tienda.ejs");
 });
 
+//>| ruta post de actualizacion de productos
 
-// routerProducts.put("/productos/:id", (req, res) => {
-//   const producto = req.body;
-//   const id = req.params.id;
-//   productos.slice(id - 1, 1, producto);
-// });
+routerProducts.post("/productos/producto/update/:id", (req, res) => {
+  const { titulo, precio } = req.body;
+  const precioFormat = Number(precio);
 
-// routerProducts.delete("/productos/:id", (req, res) => {
-//   const id = req.params.id;
-//   productos.slice(id - 1, 1);
-// });
-
-// routerProducts.use(multer(multerConfig).single("image"));
+  database
+    .collection("Productos")
+    .doc(req.params.id)
+    .update({ titulo, precioFormat });
+  logger.info("producto actualizado");
+  res.redirect("/api/productos/all");
+});
+routerProducts.get("/productos/producto/update/:id", (req, res) => {
+  res.render("formUpdate.ejs");
+});
 
 module.exports = routerProducts;
-
