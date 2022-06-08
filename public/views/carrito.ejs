@@ -20,12 +20,13 @@
         <div class="d-flex flex-row row ms-2 mb-5 bg-dark">
         <% productosCarrito.forEach((productosCarrito ,key) => { %> 
             <div class="card  m-3 bg-secondary bg-opacity-25  rounded-bottom rounded-3 " style="width: 15rem;">
+              <img src="../images/<%= productosCarrito.img %>" class="card-img-top w-50 pt-3 h-50 m-auto" alt="<%= productosCarrito.img %>" >
              
                 <div class="card-body   ">
                   <h5 class="card-title text-center bg-primary rounded-3 pb-1"><a  class="text-decoration-none text-light "href="http://localhost:8080/api/productos/productosCarrito/<%= productosCarrito.id %>"><%= productosCarrito.titulo %></a></h5>
-                  <p class=" bg-secondary bg-opacity-25 p-2 text-light rounded-3"><small >Lorem ipsum dolor sit amet consectetur adipisicing elit.</small></p>
+                  <p class=" bg-secondary bg-opacity-25 p-2 text-light rounded-3"><small ><%= productosCarrito.descripcion %> </small></p>
                   <p class=" text-center badge bg-success w-50 text-light me-4">$<%= productosCarrito.precio %> </p>
-                  <b class="  badge bg-secondary bg-opacity-25 text-light pe-2 ps-2 ms-3">ID :  <%= key+1 %></b>
+                  <b class="  badge bg-secondary bg-opacity-25 text-light pe-2 ps-2 ms-3">ID :  <%= productosCarrito.codigo %></b>
                  <a href="http://localhost:8080/api/carrito/delete/<%= productosCarrito.id %> " class="badge text-decoration-none bg-danger text-light ">🗑</a>
                 </div>
               </div>

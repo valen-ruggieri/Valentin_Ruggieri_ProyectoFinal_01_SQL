@@ -1,14 +1,30 @@
 const express = require("express");
 const routerProducts = express.Router();
 const path = require("path");
-const productos = require("./productos");
 const multer = require("multer");
 const logger = require("../../utils/logger");
-const multerConfig = require("../../utils/multer");
 const database = require("../../firebase/firebase");
 const config = require("../../utils/config");
+const imgRandom = require("../../utils/imgRandom");
 
 routerProducts.use(express.static(path.join(__dirname + "/public")));
+
+//>|  multer config
+
+const storageContent = multer.diskStorage({
+  destination: (path.join(__dirname + "/public/images")),
+  filename: (req, file, cb) => {
+    cb(null, file.originalname);
+  },
+});
+
+routerProducts.use(
+  multer({
+    storage: storageContent,
+    limits: { fileSize: 1000000 },
+    dest:  (path.join(__dirname + "/public/images")),
+  }).single("image")
+);
 
 // $                   CLIENTE
 
@@ -19,9 +35,14 @@ routerProducts.get("/productos/tienda", async (req, res) => {
   const querySnapshot = await database.collection("Productos").get();
   const productos = querySnapshot.docs.map((doc) => ({
     id: doc.id,
+    img: doc.data().img,
     titulo: doc.data().titulo,
     precio: doc.data().precioFormat,
-    producto: [doc.data().titulo, doc.data().precioFormat],
+    timestamp: doc.data().timestamp,
+    descripcion: doc.data().descripcion,
+    codigo: doc.data().codigo,
+    producto:` ${doc.data().titulo}, ${doc.data().precioFormat}`,
+    // ` ${doc.data().img},${ doc.data().titulo},${doc.data().precioFormat},${doc.data().timestamp},${doc.data().descripcion},${doc.data().codigo}`
   }));
   res.render("productosClientes.ejs", { productos });
 });
@@ -37,8 +58,13 @@ routerProducts.get("/productos/all", async (req, res) => {
   const querySnapshot = await database.collection("Productos").get();
   const productos = querySnapshot.docs.map((doc) => ({
     id: doc.id,
+    img: doc.data().img,
     titulo: doc.data().titulo,
     precio: doc.data().precioFormat,
+    timestamp: doc.data().timestamp,
+    descripcion: doc.data().descripcion,
+    codigo: doc.data().codigo,
+   
   }));
   res.render("productosAdmin.ejs", { productos });
 });
@@ -60,21 +86,29 @@ routerProducts.get("/productos/producto/:id", async (req, res) => {
 
 // >| delete producto
 
-routerProducts.get("/productos/delete/:id", (req, res) => {
-  database.collection("Productos").doc(req.params.id).delete();
+routerProducts.get("/productos/delete/:id", async (req, res) => {
+  await database.collection("Productos").doc(req.params.id).delete();
   res.redirect("/api/productos/all");
 });
 
 // >| ruta post de productos
+
 routerProducts.post("/productos/form", async (req, res) => {
-  const { titulo, precio } = req.body;
+  const { titulo, precio, descripcion, codigo } = req.body;
+  const file = req.file;
+  const img = file.filename;
   const precioFormat = Number(precio);
-  await database.collection("Productos").add({ titulo, precioFormat });
+  const date = new Date();
+  const timestamp = ` ${date.getDay()}/ ${date.getMonth()}/${date.getFullYear()} - ${date.getHours()}: ${date.getMinutes()}: ${date.getSeconds()}`;
+
+  await database
+    .collection("Productos")
+    .add({ titulo, precioFormat, timestamp, descripcion, codigo, img });
   res.redirect("/api/productos/all");
 });
 
 routerProducts.get("/productos/form", (req, res) => {
-  res.render("tienda.ejs");
+  res.render("tienda.ejs", { imgRandom: imgRandom() });
 });
 
 //>| ruta post de actualizacion de productos

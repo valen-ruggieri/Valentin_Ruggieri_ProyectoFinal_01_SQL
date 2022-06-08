@@ -20,13 +20,13 @@
         <div class="d-flex flex-row row ms-2 mb-5 bg-dark">
         <% productos.forEach((producto ,key) => { %> 
             <div class="card  m-3 bg-secondary bg-opacity-25  rounded-bottom rounded-3 " style="width: 15rem;">
-             
+              <img src="../images/<%= producto.img %>" class="card-img-top w-50 pt-3 h-50 m-auto" alt="<%= producto.img %>" >
                 <div class="card-body   ">
                   <h5 class="card-title text-center bg-primary rounded-3 pb-1"><a  class="text-decoration-none text-light "href="http://localhost:8080/api/productos/producto/<%= producto.id %>"><%= producto.titulo %></a></h5>
-                  <p class=" bg-secondary bg-opacity-25 p-2 text-light rounded-3"><small >Lorem ipsum dolor sit amet consectetur adipisicing elit.</small></p>
+                  <p class=" bg-secondary bg-opacity-25 p-2 text-light rounded-3"><small ><%= producto.descripcion %></small></p>
                   <p class=" text-center badge bg-success w-50 text-light me-4">$<%= producto.precio %> </p>
-                  <b class="  badge bg-secondary bg-opacity-25 text-light pe-2 ps-2 ms-3">ID :  <%= key+1 %></b>
-                 <a href="http://localhost:8080/api/carrito/add/<%= producto.producto  %> " class="badge text-decoration-none bg-primary text-light ">ADD TO CAR</a>
+                  <b class="  badge bg-secondary bg-opacity-25 text-light pe-2 ps-2 ms-3">ID : <%= producto.codigo %></b>
+                 <a href="http://localhost:8080/api/carrito/add/<%= producto.id  %> " class="badge text-decoration-none bg-primary text-light ">ADD TO CAR</a>
                 </div>
               </div>
              
