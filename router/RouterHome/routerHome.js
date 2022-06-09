@@ -21,4 +21,8 @@ res.render('home.ejs')
 
 })
 
+// routerHome.get('/chat',(req,res)=>{
+//     res.render('chatPage.ejs')
+// })
+
 module.exports = routerHome;

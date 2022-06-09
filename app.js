@@ -2,7 +2,9 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const routerCarrito = require("./router/RouterCarrito/routerCarrito");
-const routerError = require("./router/RouterError/routerError");
+const routerChat = require("./router/RouterChat/routerChat");
+const routerError = require("./router/RouterErrorRoute/routerError");
+
 const routerHome = require("./router/RouterHome/routerHome");
 const routerProducts = require("./router/RouterProductos/routerProductos");
 const { routerUser } = require("./router/RouterUser/routerUser");
@@ -17,5 +19,6 @@ app.use("/api", routerProducts);
 app.use("/api", routerCarrito);
 app.use("/",routerHome)
 app.use('/',routerError)
+app.use('/',routerChat)
 
 module.exports = app;

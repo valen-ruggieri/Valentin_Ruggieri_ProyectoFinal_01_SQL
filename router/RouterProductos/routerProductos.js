@@ -10,9 +10,11 @@ const { userPermissionsClient, userPermissionsAdmin } = require("../../utils/per
 const { Data } = require("../RouterUser/routerUser");
 
 routerProducts.use(express.static(path.join(__dirname + "/public")));
+routerProducts.use(express.static(path.join('/public')));
 
 
 const uID = Data;
+
 
 
 //>|  multer config
@@ -72,6 +74,15 @@ routerProducts.get("/productos/producto/:id", async (req, res) => {
   };
   res.render("productoid.ejs", { productoId });
 });
+
+// >| ruta de chat
+
+routerProducts.get('/productos/chat',(req,res)=>{
+  res.render('chatClient.ejs')
+})
+
+
+
 
 //%                   ADMINISTRADOR
 

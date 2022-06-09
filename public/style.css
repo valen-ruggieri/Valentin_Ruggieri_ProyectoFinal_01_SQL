@@ -1,6 +1,16 @@
 
 #homeBody{
     background-image: url('./src/sun-tornado.png');}
-
-
+#chatBackground{
+    background-color: #232320;
+}
+.chatBody{
+   padding: 40px 0px;
+    border-radius: 50px;
+    background: linear-gradient(145deg, #1a1a18, #1f1f1d);
+    box-shadow:  5px 5px 10px #171716,
+                 -5px -5px 10px #232320;
+    margin-top: 30px;
+    margin-bottom: 90px;
+}
     

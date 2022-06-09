@@ -1,6 +1,4 @@
 const express = require("express");
-
-const database = require("../../firebase/firebase");
 const routerError = express.Router();
 const path = require("path");
 const logger = require("../../utils/logger");
