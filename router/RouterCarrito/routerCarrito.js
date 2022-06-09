@@ -1,11 +1,11 @@
 const express = require("express");
 const routerCarrito = express.Router();
-const carrito = require("./carrito.js");
 const path = require("path");
 const database = require("../../firebase/firebase");
 const config = require("../../utils/config");
 const logger = require("../../utils/logger");
-const { Data } = require("../RouterHome/routerHome.js");
+const { userPermissionsClient, permissions } = require("../../utils/permissions");
+const { Data } = require("../RouterUser/routerUser.js");
 
 
 
@@ -14,11 +14,17 @@ routerCarrito.use(express.static(path.join(__dirname + "/public")));
 
 const uID = Data
 
+
 //>| 1 - POST: '/' - Crea un carrito y devuelve su id.
 //>| - POST: '/:id/productos' - Para incorporar productos al carrito por su id de producto
 
 routerCarrito.get("/carrito/add/:IDproducto", async (req, res) => {
 
+
+  if (!userPermissionsClient(uID.userPermission)){return res.redirect('/errorRoute') }
+
+  const date = new Date();
+  const timestampCarrito = ` ${date.getDay()}/ ${date.getMonth()}/${date.getFullYear()} - ${date.getHours()}: ${date.getMinutes()}: ${date.getSeconds()}`;
 
 
   const productoFR = await database
@@ -39,13 +45,14 @@ routerCarrito.get("/carrito/add/:IDproducto", async (req, res) => {
     .collection("Users")
     .doc(uID.id)
     .collection("carrito")
-    .add({...productoId});
+    .add({timestampCarrito,...productoId});
   res.redirect("/api/productos/tienda");
 });
 
 //>| 2 - DELETE: '/:id' - Vacía un carrito y lo elimina.
 
 routerCarrito.get("/carrito/delete", async (req, res) => {
+  if (!userPermissionsClient(uID.userPermission)){return res.redirect('/errorRoute') }
   const array = await database
     .collection("Users")
     .doc(uID.id)
@@ -60,6 +67,7 @@ routerCarrito.get("/carrito/delete", async (req, res) => {
 //>| 3 - GET: '/:id/productos' - Me permite listar todos los productos guardados en el carrito
 
 routerCarrito.get("/carrito/productos", async (req, res) => {
+  if (!userPermissionsClient(uID.userPermission)){return res.redirect('/errorRoute') }
   const querySnapshot = await database
     .collection("Users")
     .doc(uID.id)
@@ -70,7 +78,7 @@ routerCarrito.get("/carrito/productos", async (req, res) => {
     id: doc.id,
     img: doc.data().img,
     titulo: doc.data().titulo,
-    precio: doc.data().precioFormat,
+    precio: doc.data().precio,
     timestamp: doc.data().timestamp,
     descripcion: doc.data().descripcion,
     codigo: doc.data().codigo,
@@ -82,6 +90,7 @@ routerCarrito.get("/carrito/productos", async (req, res) => {
 //>| 5 - DELETE: '/:id/productos/:id_prod' - Eliminar un producto del carrito por su id de carrito y de producto
 
 routerCarrito.get("/carrito/delete/:id", async (req, res) => {
+  if (!userPermissionsClient(uID.userPermission)){return res.redirect('/errorRoute') }
   await database
     .collection("Users")
     .doc(uID.id)

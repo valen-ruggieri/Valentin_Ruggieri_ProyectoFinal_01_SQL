@@ -4,46 +4,21 @@ const database = require("../../firebase/firebase");
 const routerHome = express.Router();
 const path = require("path");
 const logger = require("../../utils/logger");
+const { Data } = require("../RouterUser/routerUser");
+const uID = Data;
 
-routerHome.use(express.static(path.join(__dirname + "/public")));
 
-let Data = { id: "" };
+routerHome.get('/',async(req,res)=>{
 
-const userSession = async (email, password) => {
-  const user = await database
-    .collection("Users")
-    .where("password", "==", password)
-    .where("email", "==", email)
-    .get();
-  const dataRef = user.docs.map((user) => ({
-    id: user.id,
-    name: user.data().name,
-    password: user.data().password,
-    userType: user.data().userType,
-  }));
+    if(uID.id !== ''){
+        await database.collection('Users').doc(uID.id).delete();
+        logger.info('Sesion de '+uID.userPermission+' Cerrada - uID:'+uID.id)
+        Data.id = '';
+        Data.userPermission = '';}
 
-  return dataRef[0];
-};
-routerHome.get("/home", (req, res) => {
-  res.render("home.ejs");
-});
 
-routerHome.post("/home", async (req, res) => {
-  const { name, email, password, userType } = req.body;
-  const carrito = [];
+res.render('home.ejs')
 
-  await database
-    .collection("Users")
-    .add({ name, email, password, userType, carrito });
+})
 
-  const { id } = await userSession(email, password);
-  Data.id = id;
-
-  if (userType === "cliente") {
-    return res.redirect("/api/productos/tienda");
-  } else {
-    return res.redirect("/api/productos/all");
-  }
-});
-
-module.exports = { routerHome, Data };
+module.exports = routerHome;

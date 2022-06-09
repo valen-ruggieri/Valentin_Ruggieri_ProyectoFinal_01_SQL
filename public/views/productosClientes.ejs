@@ -14,7 +14,7 @@
 </head>
 <body class="bg-dark m-5">
 <h1 class="text-center  text-secondary  text-opacity-10">Productos</h1>
-<a  href="http://localhost:8080/api/carrito/productos" class="badge text-decoration-none bg-success text-light">Carrito 🛒</a>   
+<%- include('../partials/darkMode/navBarDark.ejs') %> 
 
 <% if(productos.length){%> 
         <div class="d-flex flex-row row ms-2 mb-5 bg-dark">
@@ -41,5 +41,8 @@
         <h1 class="text-center  text-secondary  text-opacity-10">No existen productos</h1>
       </div>
     <% } %> 
+
+    <%- include('../partials/darkMode/chatDark.ejs') %> 
+    <script src="../chat.js"> </script>
 </body>
 </html>

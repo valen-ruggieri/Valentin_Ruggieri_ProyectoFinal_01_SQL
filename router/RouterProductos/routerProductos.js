@@ -6,8 +6,14 @@ const logger = require("../../utils/logger");
 const database = require("../../firebase/firebase");
 const config = require("../../utils/config");
 const imgRandom = require("../../utils/imgRandom");
+const { userPermissionsClient, userPermissionsAdmin } = require("../../utils/permissions");
+const { Data } = require("../RouterUser/routerUser");
 
 routerProducts.use(express.static(path.join(__dirname + "/public")));
+
+
+const uID = Data;
+
 
 //>|  multer config
 
@@ -32,6 +38,9 @@ routerProducts.use(
 
 // >| get productos
 routerProducts.get("/productos/tienda", async (req, res) => {
+
+  if (!userPermissionsClient(uID.userPermission)){return res.redirect('/errorRoute') }
+
   const querySnapshot = await database.collection("Productos").get();
   const productos = querySnapshot.docs.map((doc) => ({
     id: doc.id,
@@ -49,12 +58,29 @@ routerProducts.get("/productos/tienda", async (req, res) => {
 
 // >| get id productos
 
+
+routerProducts.get("/productos/producto/:id", async (req, res) => {
+  if (!userPermissionsClient(uID.userPermission)){return res.redirect('/errorRoute') }
+  const productoFR = await database
+    .collection("Productos")
+    .doc(req.params.id)
+    .get();
+  const productoId = {
+    id: productoFR.id,
+    titulo: productoFR.data().titulo,
+    precio: productoFR.data().precioFormat,
+  };
+  res.render("productoid.ejs", { productoId });
+});
+
 //%                   ADMINISTRADOR
 
 //%     Puede agregar, editar y borrar productos como asi tambien logearse
 
 // >| get productos
 routerProducts.get("/productos/all", async (req, res) => {
+  if (!userPermissionsAdmin(uID.userPermission)){return res.redirect('/errorRoute') }
+  
   const querySnapshot = await database.collection("Productos").get();
   const productos = querySnapshot.docs.map((doc) => ({
     id: doc.id,
@@ -69,24 +95,13 @@ routerProducts.get("/productos/all", async (req, res) => {
   res.render("productosAdmin.ejs", { productos });
 });
 
-// >| get id productos
 
-routerProducts.get("/productos/producto/:id", async (req, res) => {
-  const productoFR = await database
-    .collection("Productos")
-    .doc(req.params.id)
-    .get();
-  const productoId = {
-    id: productoFR.id,
-    titulo: productoFR.data().titulo,
-    precio: productoFR.data().precioFormat,
-  };
-  res.render("productoid.ejs", { productoId });
-});
 
 // >| delete producto
 
 routerProducts.get("/productos/delete/:id", async (req, res) => {
+  if (!userPermissionsAdmin(uID.userPermission)){return res.redirect('/errorRoute') }
+
   await database.collection("Productos").doc(req.params.id).delete();
   res.redirect("/api/productos/all");
 });
@@ -94,6 +109,8 @@ routerProducts.get("/productos/delete/:id", async (req, res) => {
 // >| ruta post de productos
 
 routerProducts.post("/productos/form", async (req, res) => {
+  if (!userPermissionsAdmin(uID.userPermission)){return res.redirect('/errorRoute') }
+
   const { titulo, precio, descripcion, codigo } = req.body;
   const file = req.file;
   const img = file.filename;
@@ -108,12 +125,16 @@ routerProducts.post("/productos/form", async (req, res) => {
 });
 
 routerProducts.get("/productos/form", (req, res) => {
+  if (!userPermissionsAdmin(uID.userPermission)){return res.redirect('/errorRoute') }
+
   res.render("tienda.ejs", { imgRandom: imgRandom() });
 });
 
 //>| ruta post de actualizacion de productos
 
 routerProducts.post("/productos/producto/update/:id", (req, res) => {
+  if (!userPermissionsAdmin(uID.userPermission)){return res.redirect('/errorRoute') }
+
   const { titulo, precio } = req.body;
   const precioFormat = Number(precio);
 
@@ -125,6 +146,8 @@ routerProducts.post("/productos/producto/update/:id", (req, res) => {
   res.redirect("/api/productos/all");
 });
 routerProducts.get("/productos/producto/update/:id", (req, res) => {
+  if (!userPermissionsAdmin(uID.userPermission)){return res.redirect('/errorRoute') }
+
   res.render("formUpdate.ejs");
 });
 
