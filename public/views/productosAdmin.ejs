@@ -15,12 +15,12 @@
 <body class="bg-dark m-5">
 
 <h1 class="text-center  text-secondary  text-opacity-10">Productos</h1>
-<a href="http://localhost:8080/api/productos/form" class="text-decoration-none bg-success text-light badge">ADD PRODUCTS</a>
+<%- include('../partials/navBar.ejs') %> 
     <% if(productos.length){%> 
         <div class="d-flex flex-row row ms-2 mb-5 bg-dark">
         <% productos.forEach((producto ,key) => { %> 
             <div class="card  m-3 bg-secondary bg-opacity-25  rounded-bottom rounded-3 " style="width: 15rem;">
-              <img src="../images/<%=  producto.img %>" class="card-img-top w-50 pt-3 h-50 m-auto" alt="<%= producto.img %>" >
+              <img src="../images/<%=  producto.img %>" class="card-img-top w-50 pt-3 h-50 m-auto" width="25px" height="25px" alt="<%= producto.img %>" >
                 <div class="card-body   ">
                   <h5 class="card-title text-center bg-primary rounded-3 pb-1"><a  class="text-decoration-none text-light "href="http://localhost:8080/api/productos/producto/<%= producto.id %>"><%= producto.titulo %></a></h5>
                   <p class=" bg-secondary bg-opacity-25 p-2 text-light rounded-3"><small ><%= producto.descripcion %> </small></p>
@@ -33,8 +33,8 @@
               </div>
              
               <% }) %>
-              
-            </div>
+                </div>
+          
 
     
     <% }else{  %> 

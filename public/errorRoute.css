@@ -1,101 +1,73 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 * {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Press Start 2P';
+    color: #FFFFFF;
+    text-align: center;
 }
 
 body {
-  padding: 0;
-  margin: 0;
+  background-color: #000000;
+  background-image: url("data:image/svg+xml,%3Csvg width='34' height='23' viewBox='0 0 84 48' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h12v6H0V0zm28 8h12v6H28V8zm14-8h12v6H42V0zm14 0h12v6H56V0zm0 8h12v6H56V8zM42 8h12v6H42V8zm0 16h12v6H42v-6zm14-8h12v6H56v-6zm14 0h12v6H70v-6zm0-16h12v6H70V0zM28 32h12v6H28v-6zM14 16h12v6H14v-6zM0 24h12v6H0v-6zm0 8h12v6H0v-6zm14 0h12v6H14v-6zm14 8h12v6H28v-6zm-14 0h12v6H14v-6zm28 0h12v6H42v-6zm14-8h12v6H56v-6zm0-8h12v6H56v-6zm14 8h12v6H70v-6zm0 8h12v6H70v-6zM14 24h12v6H14v-6zm14-8h12v6H28v-6zM14 8h12v6H14V8zM0 8h12v6H0V8z' fill='%23595959' fill-opacity='0.38' fill-rule='evenodd'/%3E%3C/svg%3E");}
+
+section.notFound {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 5%;
+    height: 100vh;
 }
 
-#notfound {
-  position: relative;
-  height: 100vh;
+section.notFound h1 {
+    color: red;
+    font-size: 80px;
 }
 
-#notfound .notfound {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+section.notFound h2 {
+    font-size: 50px;
 }
 
-.notfound {
-  max-width: 520px;
-  width: 100%;
-  line-height: 1.4;
-  text-align: center;
+section.notFound h1, h2, h3 {
+    margin-bottom: 40px;
 }
 
-.notfound .notfound-404 {
-  position: relative;
-  height: 240px;
+div.text {
+    height: 50vh;
+    margin-top: -180px;
 }
 
-.notfound .notfound-404 h1 {
-  font-family: "Montserrat", sans-serif;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  font-size: 252px;
-  font-weight: 900;
-  margin: 0px;
-  color: #262626;
-  text-transform: uppercase;
-  letter-spacing: -40px;
-  margin-left: -20px;
+div.text a {
+    text-decoration: none;
+    margin-right: 20px;
 }
 
-.notfound .notfound-404 h1 > span {
-  text-shadow: -8px 0px 0px #fff;
+div.text a:hover {
+    color: red;
+    text-decoration: underline; 
 }
 
-.notfound .notfound-404 h3 {
-  font-family: "Cabin", sans-serif;
-  position: relative;
-  font-size: 16px;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: #262626;
-  margin: 0px;
-  letter-spacing: 3px;
-  padding-left: 6px;
-}
-
-.notfound h2 {
-  font-family: "Cabin", sans-serif;
-  font-size: 20px;
-  font-weight: 400;
-  text-transform: uppercase;
-  color: #000;
-  margin-top: 0px;
-  margin-bottom: 25px;
-}
-
-@media only screen and (max-width: 767px) {
-  .notfound .notfound-404 {
-    height: 200px;
-  }
-  .notfound .notfound-404 h1 {
-    font-size: 200px;
-  }
-}
-
-@media only screen and (max-width: 480px) {
-  .notfound .notfound-404 {
-    height: 162px;
-  }
-  .notfound .notfound-404 h1 {
-    font-size: 162px;
-    height: 150px;
-    line-height: 162px;
-  }
-  .notfound h2 {
-    font-size: 16px;
+@media only screen and (max-width: 768px) {
+    section.notFound {
+        flex-direction: column;
+        justify-content: space-around;
+    }
+    section.notFound div.img img {
+        width: 70vw;
+        height: auto;
+    }
+    section.notFound h1 {
+        font-size: 50px;
+    }
+    section.notFound h2 {
+        font-size: 25px;
+    }
+    div.text a:active {
+    color: red;
+    text-decoration: underline; 
   }
 }

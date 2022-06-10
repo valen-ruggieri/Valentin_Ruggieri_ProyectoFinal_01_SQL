@@ -4,6 +4,11 @@ const database = require("../../firebase/firebase");
 const routerUser = express.Router();
 const path = require("path");
 const logger = require("../../utils/logger");
+const validation = require("../../utils/Middlewares/validationMiddleware");
+const userschema = require("../../Validations/userValidation");
+
+
+
 
 routerUser.use(express.static(path.join(__dirname + "/public")));
 
@@ -30,7 +35,7 @@ routerUser.get("/user", (req, res) => {
 
 
 
-routerUser.post("/user", async (req, res) => {
+routerUser.post("/user",validation(userschema), async (req, res) => {
   const { name, email, password, userType } = req.body;
 
 
