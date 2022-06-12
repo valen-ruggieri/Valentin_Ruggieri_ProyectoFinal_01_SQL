@@ -84,7 +84,7 @@ routerCarrito.get("/carrito/productos", async (req, res) => {
     codigo: doc.data().codigo,
   }));
 
-  res.render("carrito.ejs", { productosCarrito });
+  res.render("carrito.ejs", { productosCarrito ,uID});
 });
 
 //>| 5 - DELETE: '/:id/productos/:id_prod' - Eliminar un producto del carrito por su id de carrito y de producto

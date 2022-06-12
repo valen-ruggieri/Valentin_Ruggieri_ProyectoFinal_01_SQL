@@ -21,9 +21,7 @@ const io = ioServer(server);
 
 app.use(express.static(__dirname + "./public"));
 
-
 const messages = [];
-
 
 io.on("connection", (socket) => {
   console.log('connecction io')

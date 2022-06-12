@@ -1,16 +1,709 @@
+#homeBody {
+  background-image: url("./src/sun-tornado.png");
+}
 
-#homeBody{
-    background-image: url('./src/sun-tornado.png');}
-#chatBackground{
-    background-color: #232320;
+#titleHome {
+  font-size: 90px;
+
+  text-align: center;
+  margin-top: 90px;
+  letter-spacing: 40px;
+  font-weight: 700;
 }
-.chatBody{
-   padding: 40px 0px;
-    border-radius: 50px;
-    background: linear-gradient(145deg, #1a1a18, #1f1f1d);
-    box-shadow:  5px 5px 10px #171716,
-                 -5px -5px 10px #232320;
-    margin-top: 30px;
-    margin-bottom: 90px;
+
+#subTitleHome {
+  font-size: 30px;
+
+  text-align: center;
+  margin-top: 10px;
+  letter-spacing: 40px;
+  font-weight: 700;
 }
-    
+
+#bodyFormUser {
+  background-image: url("./src/sun-tornado.png");
+}
+#titleUser {
+  font-size: 90px;
+
+  text-align: center;
+  margin-top: 90px;
+  letter-spacing: 40px;
+  font-weight: 700;
+}
+#subTitleUser {
+  font-size: 30px;
+  text-align: center;
+  margin-top: 20px;
+  letter-spacing: 9px;
+  font-weight: 700;
+}
+
+.modal-content {
+  border-radius: 50px;
+  background: linear-gradient(145deg, #1a1a18, #1f1f1d);
+  box-shadow: 5px 5px 1px #171716;
+}
+#flexRadioDefault1,
+#flexRadioDefault2 {
+  background-color: #4242428e;
+}
+
+#flexRadioDefault1:focus,
+#flexRadioDefault2:focus {
+  background-color: #ffffff;
+}
+#flexRadioDefault1:has,
+#flexRadioDefault2:checked {
+  background-color: #fffafa;
+}
+
+.form-check {
+  text-align: center;
+  margin-left: 55px;
+}
+.textLabel {
+  color: rgb(64, 64, 64);
+  margin-left: -150px;
+  text-align: start;
+}
+.inputConditions {
+  font-size: 11px;
+  color: rgba(170, 170, 170, 0.84);
+  max-width: 330px;
+  text-align: start;
+  margin-left: 60px;
+}
+.inputStyleForm {
+  color: #f78a2b;
+  width: 400px;
+  border-radius: 10px;
+  text-align: center;
+  border: none;
+  padding: 5px;
+}
+.inputStyleForm:focus {
+  outline: unset;
+}
+
+.modal-title {
+  color: #f78a2b;
+  letter-spacing: 5px;
+  text-shadow: 1px 1px 1px #fe601d;
+}
+#buttonSendFormUser {
+  color: #000000;
+
+  border-radius: 50px;
+  background-image: linear-gradient(0deg, #f78a2b, #fe601d);
+  border: none;
+  box-shadow: 2px 2px 0px #fb7d2f;
+
+  font-weight: 700;
+  letter-spacing: 3px;
+  width: 200px;
+  margin: 10px;
+}
+#buttonSendFormUser:hover {
+  color: aliceblue;
+}
+#buttonCloseModal {
+  color: rgb(255, 255, 255);
+  background-color: transparent;
+  border: none;
+  margin-left: 420px;
+  margin-top: -10px;
+}
+
+/* shopClient */
+
+.bodyShopClient {
+  background-color: #ee5522;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2000 1500'%3E%3Cdefs%3E%3CradialGradient id='a' gradientUnits='objectBoundingBox'%3E%3Cstop offset='0' stop-color='%23FB3'/%3E%3Cstop offset='1' stop-color='%23ee5522'/%3E%3C/radialGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='0' y1='750' x2='1550' y2='750'%3E%3Cstop offset='0' stop-color='%23f7882b'/%3E%3Cstop offset='1' stop-color='%23ee5522'/%3E%3C/linearGradient%3E%3Cpath id='s' fill='url(%23b)' d='M1549.2 51.6c-5.4 99.1-20.2 197.6-44.2 293.6c-24.1 96-57.4 189.4-99.3 278.6c-41.9 89.2-92.4 174.1-150.3 253.3c-58 79.2-123.4 152.6-195.1 219c-71.7 66.4-149.6 125.8-232.2 177.2c-82.7 51.4-170.1 94.7-260.7 129.1c-90.6 34.4-184.4 60-279.5 76.3C192.6 1495 96.1 1502 0 1500c96.1-2.1 191.8-13.3 285.4-33.6c93.6-20.2 185-49.5 272.5-87.2c87.6-37.7 171.3-83.8 249.6-137.3c78.4-53.5 151.5-114.5 217.9-181.7c66.5-67.2 126.4-140.7 178.6-218.9c52.3-78.3 96.9-161.4 133-247.9c36.1-86.5 63.8-176.2 82.6-267.6c18.8-91.4 28.6-184.4 29.6-277.4c0.3-27.6 23.2-48.7 50.8-48.4s49.5 21.8 49.2 49.5c0 0.7 0 1.3-0.1 2L1549.2 51.6z'/%3E%3Cg id='g'%3E%3Cuse href='%23s' transform='scale(0.12) rotate(60)'/%3E%3Cuse href='%23s' transform='scale(0.2) rotate(10)'/%3E%3Cuse href='%23s' transform='scale(0.25) rotate(40)'/%3E%3Cuse href='%23s' transform='scale(0.3) rotate(-20)'/%3E%3Cuse href='%23s' transform='scale(0.4) rotate(-30)'/%3E%3Cuse href='%23s' transform='scale(0.5) rotate(20)'/%3E%3Cuse href='%23s' transform='scale(0.6) rotate(60)'/%3E%3Cuse href='%23s' transform='scale(0.7) rotate(10)'/%3E%3Cuse href='%23s' transform='scale(0.835) rotate(-40)'/%3E%3Cuse href='%23s' transform='scale(0.9) rotate(40)'/%3E%3Cuse href='%23s' transform='scale(1.05) rotate(25)'/%3E%3Cuse href='%23s' transform='scale(1.2) rotate(8)'/%3E%3Cuse href='%23s' transform='scale(1.333) rotate(-60)'/%3E%3Cuse href='%23s' transform='scale(1.45) rotate(-30)'/%3E%3Cuse href='%23s' transform='scale(1.6) rotate(10)'/%3E%3C/g%3E%3C/defs%3E%3Cg transform='translate(1000 0)'%3E%3Cg transform='translate(0 330)'%3E%3Ccircle fill='url(%23a)' r='3000'/%3E%3Cg opacity='0.5'%3E%3Ccircle fill='url(%23a)' r='2000'/%3E%3Ccircle fill='url(%23a)' r='1800'/%3E%3Ccircle fill='url(%23a)' r='1700'/%3E%3Ccircle fill='url(%23a)' r='1651'/%3E%3Ccircle fill='url(%23a)' r='1450'/%3E%3Ccircle fill='url(%23a)' r='1250'/%3E%3Ccircle fill='url(%23a)' r='1175'/%3E%3Ccircle fill='url(%23a)' r='900'/%3E%3Ccircle fill='url(%23a)' r='750'/%3E%3Ccircle fill='url(%23a)' r='500'/%3E%3Ccircle fill='url(%23a)' r='380'/%3E%3Ccircle fill='url(%23a)' r='250'/%3E%3C/g%3E%3Cg transform='rotate(-82.8 0 0)'%3E%3Cuse href='%23g' transform='rotate(10)'/%3E%3Cuse href='%23g' transform='rotate(120)'/%3E%3Cuse href='%23g' transform='rotate(240)'/%3E%3C/g%3E%3Ccircle fill-opacity='0.1' fill='url(%23a)' r='3000'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+#titleShopClient {
+  font-size: 60px;
+  background-image: linear-gradient(0deg, #f7b62b, #f78a2b, #fe601d);
+  -webkit-background-clip: text;
+  color: transparent;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  margin-bottom: 2px;
+  letter-spacing: 40px;
+  font-weight: 700;
+}
+.hrShop {
+  background-color: #ee5522;
+}
+
+/* productos shop cliente */
+
+.cardProduct {
+  border-radius: 50px;
+  background: linear-gradient(145deg, #1a1a18, #1f1f1d);
+  box-shadow: 5px 5px 1px #171716;
+}
+.cardImage {
+  margin: auto;
+}
+.card-title {
+  background: #0d0d0d;
+  box-shadow: 3px 3px 3px #171716;
+  text-align: center;
+  border-radius: 10px;
+  font-weight: 700;
+  padding: 5px;
+  padding-bottom: 5px;
+}
+
+.card-title:hover {
+  background: crimson;
+  color: rgb(10, 10, 10);
+  transition: 0.3s;
+
+}
+.aLinkToProduct {
+  color: crimson;
+  text-decoration: none;
+}
+
+.cardDescrption {
+  color: #ee5522;
+  background: #0d0d0d;
+  box-shadow: 3px 3px 3px #171716;
+  font-weight: 700;
+  text-align: center;
+  border-radius: 10px;
+  padding: 10px;
+  padding-bottom: 10px;
+}
+.contentPriceAndCode {
+  display: flex;
+  justify-content: baseline;
+  font-size: 12px;
+}
+.cardPrice {
+  color: chartreuse;
+  background: #0d0d0d;
+  box-shadow: 3px 3px 3px #171716;
+  font-weight: 700;
+  text-align: center;
+  border-radius: 10px;
+  padding: 5px 15px;
+  padding-bottom: 5px;
+}
+.cardCode {
+  color: blueviolet;
+  margin-left: 20px;
+  background: #0d0d0d;
+  box-shadow: 3px 3px 3px #171716;
+  font-weight: 700;
+  text-align: center;
+  border-radius: 10px;
+  padding: 5px 15px;
+  padding-bottom: 5px;
+}
+.buttonAddToCart {
+  text-decoration: none;
+  color: #000000;
+
+  border-radius: 10px;
+  background-image: linear-gradient(0deg, #f78a2b, #fe601d);
+  border: none;
+  box-shadow: 2px 2px 0px #fb7d2f;
+
+  font-weight: 700;
+  letter-spacing: 3px;
+  margin-left: 20px;
+  padding: 5px 10px;
+  padding-bottom: 7px;
+}
+.buttonAddToCart:hover {
+  color: #ffffff;
+  transition: 0.3s;
+
+}
+
+/* productos carrito */
+.buttonDeleteToCart {
+  color: #ffffff;
+  text-decoration: none;
+  color: #000000;
+  background-color: #fd2d2d;
+  border: none;
+  box-shadow: 3px 3px 3px #171716;
+  font-weight: 700;
+  letter-spacing: 3px;
+  margin-left: 40px;
+  padding: 5px 40px;
+  padding-bottom: 7px;
+  border-radius: 10px;
+}
+.buttonDeleteToCart:hover {
+  border-radius: 10px;
+  background-color: #f52525;
+  border: none;
+  box-shadow: 2px 2px 2px #000000, -1px -1px 2px #000000;
+  transition: 0.3s;
+
+}
+
+.deleteIcon {
+  color: rgb(255, 255, 255);
+  width: 20px;
+  height: 20px;
+}
+
+/* producto admin */
+
+.deleteAdmin {
+  border-radius: 10px;
+  background-color: #f52525;
+  box-shadow: 3px 3px 3px #171716;
+  font-weight: 700;
+  width: 150px;
+  margin-top: 10px;
+}
+.deleteAdmin:hover {
+  background-color: #f41111;
+  box-shadow: 3px 3px 3px #000000;
+  transition: 0.3s;
+
+}
+.updateAdmin {
+  border-radius: 10px;
+  background-color: teal;
+  text-decoration: none;
+  box-shadow: 3px 3px 3px #171716;
+  font-weight: 700;
+  margin-top: 10px;
+}
+.updateAdmin:hover {
+  background-color: rgb(0, 172, 172);
+  text-decoration: none;
+  box-shadow: 3px 3px 3px #000000;
+  transition: 0.3s;
+
+}
+.iconAdmin {
+  color: rgb(255, 255, 255);
+}
+.iconAdmin:hover {
+  color: #000000;
+  transition: 0.3s;
+
+}
+
+/* navbar */
+
+.navbarBody {
+  border-radius: 40px;
+  margin: 5px 10px;
+}
+.navbarContainer {
+  display: flex;
+  margin-left: 60px;
+}
+.permissionsText {
+  margin-left: 100px;
+  background-image: linear-gradient(0deg, #f7b62b, #f78a2b, #fe601d);
+  -webkit-background-clip: text;
+  color: transparent;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+}
+.aLinkNav {
+  color: #fffafa;
+  margin-right: 20px;
+  font-weight: 400;
+}
+.aLinkNav:hover {
+  background-image: linear-gradient(0deg, #f7b62b, #f78a2b, #fe601d);
+  border-radius: 50px;
+  color: #000000;
+ 
+
+}
+.spaceAdminNavBar {
+  margin-left: 300px;
+}
+
+/* carrito */
+
+.bodyCart {
+  background-color: #ee5522;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2000 1500'%3E%3Cdefs%3E%3CradialGradient id='a' gradientUnits='objectBoundingBox'%3E%3Cstop offset='0' stop-color='%23FB3'/%3E%3Cstop offset='1' stop-color='%23ee5522'/%3E%3C/radialGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='0' y1='750' x2='1550' y2='750'%3E%3Cstop offset='0' stop-color='%23f7882b'/%3E%3Cstop offset='1' stop-color='%23ee5522'/%3E%3C/linearGradient%3E%3Cpath id='s' fill='url(%23b)' d='M1549.2 51.6c-5.4 99.1-20.2 197.6-44.2 293.6c-24.1 96-57.4 189.4-99.3 278.6c-41.9 89.2-92.4 174.1-150.3 253.3c-58 79.2-123.4 152.6-195.1 219c-71.7 66.4-149.6 125.8-232.2 177.2c-82.7 51.4-170.1 94.7-260.7 129.1c-90.6 34.4-184.4 60-279.5 76.3C192.6 1495 96.1 1502 0 1500c96.1-2.1 191.8-13.3 285.4-33.6c93.6-20.2 185-49.5 272.5-87.2c87.6-37.7 171.3-83.8 249.6-137.3c78.4-53.5 151.5-114.5 217.9-181.7c66.5-67.2 126.4-140.7 178.6-218.9c52.3-78.3 96.9-161.4 133-247.9c36.1-86.5 63.8-176.2 82.6-267.6c18.8-91.4 28.6-184.4 29.6-277.4c0.3-27.6 23.2-48.7 50.8-48.4s49.5 21.8 49.2 49.5c0 0.7 0 1.3-0.1 2L1549.2 51.6z'/%3E%3Cg id='g'%3E%3Cuse href='%23s' transform='scale(0.12) rotate(60)'/%3E%3Cuse href='%23s' transform='scale(0.2) rotate(10)'/%3E%3Cuse href='%23s' transform='scale(0.25) rotate(40)'/%3E%3Cuse href='%23s' transform='scale(0.3) rotate(-20)'/%3E%3Cuse href='%23s' transform='scale(0.4) rotate(-30)'/%3E%3Cuse href='%23s' transform='scale(0.5) rotate(20)'/%3E%3Cuse href='%23s' transform='scale(0.6) rotate(60)'/%3E%3Cuse href='%23s' transform='scale(0.7) rotate(10)'/%3E%3Cuse href='%23s' transform='scale(0.835) rotate(-40)'/%3E%3Cuse href='%23s' transform='scale(0.9) rotate(40)'/%3E%3Cuse href='%23s' transform='scale(1.05) rotate(25)'/%3E%3Cuse href='%23s' transform='scale(1.2) rotate(8)'/%3E%3Cuse href='%23s' transform='scale(1.333) rotate(-60)'/%3E%3Cuse href='%23s' transform='scale(1.45) rotate(-30)'/%3E%3Cuse href='%23s' transform='scale(1.6) rotate(10)'/%3E%3C/g%3E%3C/defs%3E%3Cg transform='translate(1000 0)'%3E%3Cg transform='translate(0 330)'%3E%3Ccircle fill='url(%23a)' r='3000'/%3E%3Cg opacity='0.5'%3E%3Ccircle fill='url(%23a)' r='2000'/%3E%3Ccircle fill='url(%23a)' r='1800'/%3E%3Ccircle fill='url(%23a)' r='1700'/%3E%3Ccircle fill='url(%23a)' r='1651'/%3E%3Ccircle fill='url(%23a)' r='1450'/%3E%3Ccircle fill='url(%23a)' r='1250'/%3E%3Ccircle fill='url(%23a)' r='1175'/%3E%3Ccircle fill='url(%23a)' r='900'/%3E%3Ccircle fill='url(%23a)' r='750'/%3E%3Ccircle fill='url(%23a)' r='500'/%3E%3Ccircle fill='url(%23a)' r='380'/%3E%3Ccircle fill='url(%23a)' r='250'/%3E%3C/g%3E%3Cg transform='rotate(-82.8 0 0)'%3E%3Cuse href='%23g' transform='rotate(10)'/%3E%3Cuse href='%23g' transform='rotate(120)'/%3E%3Cuse href='%23g' transform='rotate(240)'/%3E%3C/g%3E%3Ccircle fill-opacity='0.1' fill='url(%23a)' r='3000'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover;
+}
+#titleCart {
+  font-size: 60px;
+  background-image: linear-gradient(0deg, #f7b62b, #f78a2b, #fe601d);
+  -webkit-background-clip: text;
+  color: transparent;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  margin-bottom: 2px;
+  letter-spacing: 40px;
+  font-weight: 700;
+}
+.dontProductText {
+  font-size: 30px;
+
+  text-align: center;
+  margin-top: 170px;
+  letter-spacing: 10px;
+  font-weight: 700;
+}
+.deleteCart {
+  color: #1a1a18;
+  border-radius: 30px;
+  padding: 20px 40px;
+  font-size: 20px;
+  letter-spacing: 4px;
+  border: 3px solid #1a1a18;
+  box-shadow: 2px 2px 0px #000000;
+}
+.deleteCart:hover {
+  color: #000000;
+  border-radius: 30px;
+  padding: 20px 40px;
+  font-size: 20px;
+  letter-spacing: 4px;
+  border: 3px solid #1a1a18;
+  box-shadow: 2px 2px 0px #000000;
+  background-image: linear-gradient(180deg, #f7b62b, #f78a2b);
+  transition: 0.3s;
+
+}
+
+/* chat */
+
+#chatTitle {
+  font-size: 60px;
+  background-image: linear-gradient(0deg, #f7b62b, #f78a2b, #fe601d);
+  -webkit-background-clip: text;
+  color: transparent;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  margin-bottom: 2px;
+  letter-spacing: 40px;
+  font-weight: 700;
+}
+
+#chatBackground {
+  background-color: #ee5522;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2000 1500'%3E%3Cdefs%3E%3CradialGradient id='a' gradientUnits='objectBoundingBox'%3E%3Cstop offset='0' stop-color='%23FB3'/%3E%3Cstop offset='1' stop-color='%23ee5522'/%3E%3C/radialGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='0' y1='750' x2='1550' y2='750'%3E%3Cstop offset='0' stop-color='%23f7882b'/%3E%3Cstop offset='1' stop-color='%23ee5522'/%3E%3C/linearGradient%3E%3Cpath id='s' fill='url(%23b)' d='M1549.2 51.6c-5.4 99.1-20.2 197.6-44.2 293.6c-24.1 96-57.4 189.4-99.3 278.6c-41.9 89.2-92.4 174.1-150.3 253.3c-58 79.2-123.4 152.6-195.1 219c-71.7 66.4-149.6 125.8-232.2 177.2c-82.7 51.4-170.1 94.7-260.7 129.1c-90.6 34.4-184.4 60-279.5 76.3C192.6 1495 96.1 1502 0 1500c96.1-2.1 191.8-13.3 285.4-33.6c93.6-20.2 185-49.5 272.5-87.2c87.6-37.7 171.3-83.8 249.6-137.3c78.4-53.5 151.5-114.5 217.9-181.7c66.5-67.2 126.4-140.7 178.6-218.9c52.3-78.3 96.9-161.4 133-247.9c36.1-86.5 63.8-176.2 82.6-267.6c18.8-91.4 28.6-184.4 29.6-277.4c0.3-27.6 23.2-48.7 50.8-48.4s49.5 21.8 49.2 49.5c0 0.7 0 1.3-0.1 2L1549.2 51.6z'/%3E%3Cg id='g'%3E%3Cuse href='%23s' transform='scale(0.12) rotate(60)'/%3E%3Cuse href='%23s' transform='scale(0.2) rotate(10)'/%3E%3Cuse href='%23s' transform='scale(0.25) rotate(40)'/%3E%3Cuse href='%23s' transform='scale(0.3) rotate(-20)'/%3E%3Cuse href='%23s' transform='scale(0.4) rotate(-30)'/%3E%3Cuse href='%23s' transform='scale(0.5) rotate(20)'/%3E%3Cuse href='%23s' transform='scale(0.6) rotate(60)'/%3E%3Cuse href='%23s' transform='scale(0.7) rotate(10)'/%3E%3Cuse href='%23s' transform='scale(0.835) rotate(-40)'/%3E%3Cuse href='%23s' transform='scale(0.9) rotate(40)'/%3E%3Cuse href='%23s' transform='scale(1.05) rotate(25)'/%3E%3Cuse href='%23s' transform='scale(1.2) rotate(8)'/%3E%3Cuse href='%23s' transform='scale(1.333) rotate(-60)'/%3E%3Cuse href='%23s' transform='scale(1.45) rotate(-30)'/%3E%3Cuse href='%23s' transform='scale(1.6) rotate(10)'/%3E%3C/g%3E%3C/defs%3E%3Cg transform='translate(420 0)'%3E%3Cg transform='translate(0 1200)'%3E%3Ccircle fill='url(%23a)' r='3000'/%3E%3Cg opacity='0.5'%3E%3Ccircle fill='url(%23a)' r='2000'/%3E%3Ccircle fill='url(%23a)' r='1800'/%3E%3Ccircle fill='url(%23a)' r='1700'/%3E%3Ccircle fill='url(%23a)' r='1651'/%3E%3Ccircle fill='url(%23a)' r='1450'/%3E%3Ccircle fill='url(%23a)' r='1250'/%3E%3Ccircle fill='url(%23a)' r='1175'/%3E%3Ccircle fill='url(%23a)' r='900'/%3E%3Ccircle fill='url(%23a)' r='750'/%3E%3Ccircle fill='url(%23a)' r='500'/%3E%3Ccircle fill='url(%23a)' r='380'/%3E%3Ccircle fill='url(%23a)' r='250'/%3E%3C/g%3E%3Cg transform='rotate(-46.8 0 0)'%3E%3Cuse href='%23g' transform='rotate(10)'/%3E%3Cuse href='%23g' transform='rotate(120)'/%3E%3Cuse href='%23g' transform='rotate(240)'/%3E%3C/g%3E%3Ccircle fill-opacity='0' fill='url(%23a)' r='3000'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover;
+}
+.chatBody {
+  padding: 40px 0px;
+  border-radius: 50px;
+  background: linear-gradient(145deg, #1a1a18, #1f1f1d);
+  box-shadow: 5px 5px 3px #000000;
+  margin-top: 30px;
+  margin-bottom: 90px;
+}
+
+/* panel admin */
+
+#bodyPanelAdmin {
+  background-color: #ee5522;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2000 1500'%3E%3Cdefs%3E%3CradialGradient id='a' gradientUnits='objectBoundingBox'%3E%3Cstop offset='0' stop-color='%23FB3'/%3E%3Cstop offset='1' stop-color='%23ee5522'/%3E%3C/radialGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='0' y1='750' x2='1550' y2='750'%3E%3Cstop offset='0' stop-color='%23f7882b'/%3E%3Cstop offset='1' stop-color='%23ee5522'/%3E%3C/linearGradient%3E%3Cpath id='s' fill='url(%23b)' d='M1549.2 51.6c-5.4 99.1-20.2 197.6-44.2 293.6c-24.1 96-57.4 189.4-99.3 278.6c-41.9 89.2-92.4 174.1-150.3 253.3c-58 79.2-123.4 152.6-195.1 219c-71.7 66.4-149.6 125.8-232.2 177.2c-82.7 51.4-170.1 94.7-260.7 129.1c-90.6 34.4-184.4 60-279.5 76.3C192.6 1495 96.1 1502 0 1500c96.1-2.1 191.8-13.3 285.4-33.6c93.6-20.2 185-49.5 272.5-87.2c87.6-37.7 171.3-83.8 249.6-137.3c78.4-53.5 151.5-114.5 217.9-181.7c66.5-67.2 126.4-140.7 178.6-218.9c52.3-78.3 96.9-161.4 133-247.9c36.1-86.5 63.8-176.2 82.6-267.6c18.8-91.4 28.6-184.4 29.6-277.4c0.3-27.6 23.2-48.7 50.8-48.4s49.5 21.8 49.2 49.5c0 0.7 0 1.3-0.1 2L1549.2 51.6z'/%3E%3Cg id='g'%3E%3Cuse href='%23s' transform='scale(0.12) rotate(60)'/%3E%3Cuse href='%23s' transform='scale(0.2) rotate(10)'/%3E%3Cuse href='%23s' transform='scale(0.25) rotate(40)'/%3E%3Cuse href='%23s' transform='scale(0.3) rotate(-20)'/%3E%3Cuse href='%23s' transform='scale(0.4) rotate(-30)'/%3E%3Cuse href='%23s' transform='scale(0.5) rotate(20)'/%3E%3Cuse href='%23s' transform='scale(0.6) rotate(60)'/%3E%3Cuse href='%23s' transform='scale(0.7) rotate(10)'/%3E%3Cuse href='%23s' transform='scale(0.835) rotate(-40)'/%3E%3Cuse href='%23s' transform='scale(0.9) rotate(40)'/%3E%3Cuse href='%23s' transform='scale(1.05) rotate(25)'/%3E%3Cuse href='%23s' transform='scale(1.2) rotate(8)'/%3E%3Cuse href='%23s' transform='scale(1.333) rotate(-60)'/%3E%3Cuse href='%23s' transform='scale(1.45) rotate(-30)'/%3E%3Cuse href='%23s' transform='scale(1.6) rotate(10)'/%3E%3C/g%3E%3C/defs%3E%3Cg transform='translate(1000 0)'%3E%3Cg transform='translate(0 330)'%3E%3Ccircle fill='url(%23a)' r='3000'/%3E%3Cg opacity='0.5'%3E%3Ccircle fill='url(%23a)' r='2000'/%3E%3Ccircle fill='url(%23a)' r='1800'/%3E%3Ccircle fill='url(%23a)' r='1700'/%3E%3Ccircle fill='url(%23a)' r='1651'/%3E%3Ccircle fill='url(%23a)' r='1450'/%3E%3Ccircle fill='url(%23a)' r='1250'/%3E%3Ccircle fill='url(%23a)' r='1175'/%3E%3Ccircle fill='url(%23a)' r='900'/%3E%3Ccircle fill='url(%23a)' r='750'/%3E%3Ccircle fill='url(%23a)' r='500'/%3E%3Ccircle fill='url(%23a)' r='380'/%3E%3Ccircle fill='url(%23a)' r='250'/%3E%3C/g%3E%3Cg transform='rotate(-82.8 0 0)'%3E%3Cuse href='%23g' transform='rotate(10)'/%3E%3Cuse href='%23g' transform='rotate(120)'/%3E%3Cuse href='%23g' transform='rotate(240)'/%3E%3C/g%3E%3Ccircle fill-opacity='0.1' fill='url(%23a)' r='3000'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover;
+}
+#titlePanelAdmin {
+  font-size: 60px;
+  background-image: linear-gradient(0deg, #f7b62b, #f78a2b, #fe601d);
+  -webkit-background-clip: text;
+  color: transparent;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  margin-bottom: 2px;
+  letter-spacing: 40px;
+  font-weight: 700;
+}
+.hrShop {
+  background-color: #ee5522;
+}
+
+/* form update */
+
+#bodyFormUpdateProduct {
+  background-color: #ee5522;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2000 1500'%3E%3Cdefs%3E%3CradialGradient id='a' gradientUnits='objectBoundingBox'%3E%3Cstop offset='0' stop-color='%23FB3'/%3E%3Cstop offset='1' stop-color='%23ee5522'/%3E%3C/radialGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='0' y1='750' x2='1550' y2='750'%3E%3Cstop offset='0' stop-color='%23f7882b'/%3E%3Cstop offset='1' stop-color='%23ee5522'/%3E%3C/linearGradient%3E%3Cpath id='s' fill='url(%23b)' d='M1549.2 51.6c-5.4 99.1-20.2 197.6-44.2 293.6c-24.1 96-57.4 189.4-99.3 278.6c-41.9 89.2-92.4 174.1-150.3 253.3c-58 79.2-123.4 152.6-195.1 219c-71.7 66.4-149.6 125.8-232.2 177.2c-82.7 51.4-170.1 94.7-260.7 129.1c-90.6 34.4-184.4 60-279.5 76.3C192.6 1495 96.1 1502 0 1500c96.1-2.1 191.8-13.3 285.4-33.6c93.6-20.2 185-49.5 272.5-87.2c87.6-37.7 171.3-83.8 249.6-137.3c78.4-53.5 151.5-114.5 217.9-181.7c66.5-67.2 126.4-140.7 178.6-218.9c52.3-78.3 96.9-161.4 133-247.9c36.1-86.5 63.8-176.2 82.6-267.6c18.8-91.4 28.6-184.4 29.6-277.4c0.3-27.6 23.2-48.7 50.8-48.4s49.5 21.8 49.2 49.5c0 0.7 0 1.3-0.1 2L1549.2 51.6z'/%3E%3Cg id='g'%3E%3Cuse href='%23s' transform='scale(0.12) rotate(60)'/%3E%3Cuse href='%23s' transform='scale(0.2) rotate(10)'/%3E%3Cuse href='%23s' transform='scale(0.25) rotate(40)'/%3E%3Cuse href='%23s' transform='scale(0.3) rotate(-20)'/%3E%3Cuse href='%23s' transform='scale(0.4) rotate(-30)'/%3E%3Cuse href='%23s' transform='scale(0.5) rotate(20)'/%3E%3Cuse href='%23s' transform='scale(0.6) rotate(60)'/%3E%3Cuse href='%23s' transform='scale(0.7) rotate(10)'/%3E%3Cuse href='%23s' transform='scale(0.835) rotate(-40)'/%3E%3Cuse href='%23s' transform='scale(0.9) rotate(40)'/%3E%3Cuse href='%23s' transform='scale(1.05) rotate(25)'/%3E%3Cuse href='%23s' transform='scale(1.2) rotate(8)'/%3E%3Cuse href='%23s' transform='scale(1.333) rotate(-60)'/%3E%3Cuse href='%23s' transform='scale(1.45) rotate(-30)'/%3E%3Cuse href='%23s' transform='scale(1.6) rotate(10)'/%3E%3C/g%3E%3C/defs%3E%3Cg transform='translate(1000 0)'%3E%3Cg transform='translate(0 330)'%3E%3Ccircle fill='url(%23a)' r='3000'/%3E%3Cg opacity='0.5'%3E%3Ccircle fill='url(%23a)' r='2000'/%3E%3Ccircle fill='url(%23a)' r='1800'/%3E%3Ccircle fill='url(%23a)' r='1700'/%3E%3Ccircle fill='url(%23a)' r='1651'/%3E%3Ccircle fill='url(%23a)' r='1450'/%3E%3Ccircle fill='url(%23a)' r='1250'/%3E%3Ccircle fill='url(%23a)' r='1175'/%3E%3Ccircle fill='url(%23a)' r='900'/%3E%3Ccircle fill='url(%23a)' r='750'/%3E%3Ccircle fill='url(%23a)' r='500'/%3E%3Ccircle fill='url(%23a)' r='380'/%3E%3Ccircle fill='url(%23a)' r='250'/%3E%3C/g%3E%3Cg transform='rotate(-82.8 0 0)'%3E%3Cuse href='%23g' transform='rotate(10)'/%3E%3Cuse href='%23g' transform='rotate(120)'/%3E%3Cuse href='%23g' transform='rotate(240)'/%3E%3C/g%3E%3Ccircle fill-opacity='0.1' fill='url(%23a)' r='3000'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover;
+}
+#titleFormUpdate {
+  color: #f52525;
+}
+
+/* form produtc add */
+
+#bodyFormAddProduct {
+  background-color: #ee5522;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2000 1500'%3E%3Cdefs%3E%3CradialGradient id='a' gradientUnits='objectBoundingBox'%3E%3Cstop offset='0' stop-color='%23FB3'/%3E%3Cstop offset='1' stop-color='%23ee5522'/%3E%3C/radialGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='0' y1='750' x2='1550' y2='750'%3E%3Cstop offset='0' stop-color='%23f7882b'/%3E%3Cstop offset='1' stop-color='%23ee5522'/%3E%3C/linearGradient%3E%3Cpath id='s' fill='url(%23b)' d='M1549.2 51.6c-5.4 99.1-20.2 197.6-44.2 293.6c-24.1 96-57.4 189.4-99.3 278.6c-41.9 89.2-92.4 174.1-150.3 253.3c-58 79.2-123.4 152.6-195.1 219c-71.7 66.4-149.6 125.8-232.2 177.2c-82.7 51.4-170.1 94.7-260.7 129.1c-90.6 34.4-184.4 60-279.5 76.3C192.6 1495 96.1 1502 0 1500c96.1-2.1 191.8-13.3 285.4-33.6c93.6-20.2 185-49.5 272.5-87.2c87.6-37.7 171.3-83.8 249.6-137.3c78.4-53.5 151.5-114.5 217.9-181.7c66.5-67.2 126.4-140.7 178.6-218.9c52.3-78.3 96.9-161.4 133-247.9c36.1-86.5 63.8-176.2 82.6-267.6c18.8-91.4 28.6-184.4 29.6-277.4c0.3-27.6 23.2-48.7 50.8-48.4s49.5 21.8 49.2 49.5c0 0.7 0 1.3-0.1 2L1549.2 51.6z'/%3E%3Cg id='g'%3E%3Cuse href='%23s' transform='scale(0.12) rotate(60)'/%3E%3Cuse href='%23s' transform='scale(0.2) rotate(10)'/%3E%3Cuse href='%23s' transform='scale(0.25) rotate(40)'/%3E%3Cuse href='%23s' transform='scale(0.3) rotate(-20)'/%3E%3Cuse href='%23s' transform='scale(0.4) rotate(-30)'/%3E%3Cuse href='%23s' transform='scale(0.5) rotate(20)'/%3E%3Cuse href='%23s' transform='scale(0.6) rotate(60)'/%3E%3Cuse href='%23s' transform='scale(0.7) rotate(10)'/%3E%3Cuse href='%23s' transform='scale(0.835) rotate(-40)'/%3E%3Cuse href='%23s' transform='scale(0.9) rotate(40)'/%3E%3Cuse href='%23s' transform='scale(1.05) rotate(25)'/%3E%3Cuse href='%23s' transform='scale(1.2) rotate(8)'/%3E%3Cuse href='%23s' transform='scale(1.333) rotate(-60)'/%3E%3Cuse href='%23s' transform='scale(1.45) rotate(-30)'/%3E%3Cuse href='%23s' transform='scale(1.6) rotate(10)'/%3E%3C/g%3E%3C/defs%3E%3Cg transform='translate(1000 0)'%3E%3Cg transform='translate(0 330)'%3E%3Ccircle fill='url(%23a)' r='3000'/%3E%3Cg opacity='0.5'%3E%3Ccircle fill='url(%23a)' r='2000'/%3E%3Ccircle fill='url(%23a)' r='1800'/%3E%3Ccircle fill='url(%23a)' r='1700'/%3E%3Ccircle fill='url(%23a)' r='1651'/%3E%3Ccircle fill='url(%23a)' r='1450'/%3E%3Ccircle fill='url(%23a)' r='1250'/%3E%3Ccircle fill='url(%23a)' r='1175'/%3E%3Ccircle fill='url(%23a)' r='900'/%3E%3Ccircle fill='url(%23a)' r='750'/%3E%3Ccircle fill='url(%23a)' r='500'/%3E%3Ccircle fill='url(%23a)' r='380'/%3E%3Ccircle fill='url(%23a)' r='250'/%3E%3C/g%3E%3Cg transform='rotate(-82.8 0 0)'%3E%3Cuse href='%23g' transform='rotate(10)'/%3E%3Cuse href='%23g' transform='rotate(120)'/%3E%3Cuse href='%23g' transform='rotate(240)'/%3E%3C/g%3E%3Ccircle fill-opacity='0.1' fill='url(%23a)' r='3000'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.formAddProduct {
+  border-radius: 30px;
+  background: linear-gradient(145deg, #1a1a18, #1f1f1d);
+  box-shadow: 5px 5px 1px #171716;
+  width: 900px;
+  height: 560px;
+  position: absolute;
+  top: 5%;
+  left: 16%;
+}
+.inputStyleForm {
+  color: #f78a2b;
+  width: 800px;
+  border-radius: 10px;
+  text-align: center;
+  border: none;
+  padding: 5px;
+}
+.inputStyleForm:focus {
+  outline: unset;
+}
+.titleFormAddProduct {
+  color: #f78a2b;
+  letter-spacing: 5px;
+  text-shadow: 1px 1px 1px #fe601d;
+  text-align: center;
+  margin-top: 10px;
+}
+
+#buttonSendFormAddProduct {
+  color: #000000;
+
+  border-radius: 50px;
+  background-image: linear-gradient(0deg, #f78a2b, #fe601d);
+  border: none;
+  box-shadow: 2px 2px 0px #fb7d2f;
+
+  font-weight: 700;
+  letter-spacing: 3px;
+  width: 300px;
+  height: 30px;
+}
+#buttonSendFormAddProduct:hover {
+  color: aliceblue;
+  box-shadow: 2px 2px 2px #000000;
+  transition: 0.3s;
+
+}
+.selectFile {
+  visibility: hidden;
+}
+.buttonUploadFile {
+  width: 200px;
+  border-radius: 10px;
+  margin-left: 120px;
+
+  margin-top: 25px;
+  border: none;
+}
+.buttonUploadFile p {
+  color: #f78a2b;
+  letter-spacing: 5px;
+  text-shadow: 1px 1px 1px #fe601d;
+  text-align: center;
+  background-color: #171716;
+  box-shadow: 5px 5px 1px #171716;
+
+  border-radius: 10px;
+  padding: 5px 10px;
+}
+.buttonUploadFile p:hover {
+  color: #ffffff;
+  transition: 0.3s;
+
+
+  text-shadow: 1px 1px 1px #ffffff;
+
+  background-color: #171716;
+}
+
+/* producto id */
+
+#bodyProductId {
+  background-color: #ee5522;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2000 1500'%3E%3Cdefs%3E%3CradialGradient id='a' gradientUnits='objectBoundingBox'%3E%3Cstop offset='0' stop-color='%23FB3'/%3E%3Cstop offset='1' stop-color='%23ee5522'/%3E%3C/radialGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='0' y1='750' x2='1550' y2='750'%3E%3Cstop offset='0' stop-color='%23f7882b'/%3E%3Cstop offset='1' stop-color='%23ee5522'/%3E%3C/linearGradient%3E%3Cpath id='s' fill='url(%23b)' d='M1549.2 51.6c-5.4 99.1-20.2 197.6-44.2 293.6c-24.1 96-57.4 189.4-99.3 278.6c-41.9 89.2-92.4 174.1-150.3 253.3c-58 79.2-123.4 152.6-195.1 219c-71.7 66.4-149.6 125.8-232.2 177.2c-82.7 51.4-170.1 94.7-260.7 129.1c-90.6 34.4-184.4 60-279.5 76.3C192.6 1495 96.1 1502 0 1500c96.1-2.1 191.8-13.3 285.4-33.6c93.6-20.2 185-49.5 272.5-87.2c87.6-37.7 171.3-83.8 249.6-137.3c78.4-53.5 151.5-114.5 217.9-181.7c66.5-67.2 126.4-140.7 178.6-218.9c52.3-78.3 96.9-161.4 133-247.9c36.1-86.5 63.8-176.2 82.6-267.6c18.8-91.4 28.6-184.4 29.6-277.4c0.3-27.6 23.2-48.7 50.8-48.4s49.5 21.8 49.2 49.5c0 0.7 0 1.3-0.1 2L1549.2 51.6z'/%3E%3Cg id='g'%3E%3Cuse href='%23s' transform='scale(0.12) rotate(60)'/%3E%3Cuse href='%23s' transform='scale(0.2) rotate(10)'/%3E%3Cuse href='%23s' transform='scale(0.25) rotate(40)'/%3E%3Cuse href='%23s' transform='scale(0.3) rotate(-20)'/%3E%3Cuse href='%23s' transform='scale(0.4) rotate(-30)'/%3E%3Cuse href='%23s' transform='scale(0.5) rotate(20)'/%3E%3Cuse href='%23s' transform='scale(0.6) rotate(60)'/%3E%3Cuse href='%23s' transform='scale(0.7) rotate(10)'/%3E%3Cuse href='%23s' transform='scale(0.835) rotate(-40)'/%3E%3Cuse href='%23s' transform='scale(0.9) rotate(40)'/%3E%3Cuse href='%23s' transform='scale(1.05) rotate(25)'/%3E%3Cuse href='%23s' transform='scale(1.2) rotate(8)'/%3E%3Cuse href='%23s' transform='scale(1.333) rotate(-60)'/%3E%3Cuse href='%23s' transform='scale(1.45) rotate(-30)'/%3E%3Cuse href='%23s' transform='scale(1.6) rotate(10)'/%3E%3C/g%3E%3C/defs%3E%3Cg transform='translate(1000 0)'%3E%3Cg transform='translate(0 330)'%3E%3Ccircle fill='url(%23a)' r='3000'/%3E%3Cg opacity='0.5'%3E%3Ccircle fill='url(%23a)' r='2000'/%3E%3Ccircle fill='url(%23a)' r='1800'/%3E%3Ccircle fill='url(%23a)' r='1700'/%3E%3Ccircle fill='url(%23a)' r='1651'/%3E%3Ccircle fill='url(%23a)' r='1450'/%3E%3Ccircle fill='url(%23a)' r='1250'/%3E%3Ccircle fill='url(%23a)' r='1175'/%3E%3Ccircle fill='url(%23a)' r='900'/%3E%3Ccircle fill='url(%23a)' r='750'/%3E%3Ccircle fill='url(%23a)' r='500'/%3E%3Ccircle fill='url(%23a)' r='380'/%3E%3Ccircle fill='url(%23a)' r='250'/%3E%3C/g%3E%3Cg transform='rotate(-82.8 0 0)'%3E%3Cuse href='%23g' transform='rotate(10)'/%3E%3Cuse href='%23g' transform='rotate(120)'/%3E%3Cuse href='%23g' transform='rotate(240)'/%3E%3C/g%3E%3Ccircle fill-opacity='0.1' fill='url(%23a)' r='3000'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.product {
+  border-radius: 50px;
+  background: linear-gradient(145deg, #1a1a18, #1f1f1d);
+  box-shadow: 5px 5px 1px #171716;
+  width: 1000px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 30%;
+  left: 13%;
+}
+.productImage {
+  margin: auto;
+}
+.producTitle {
+  color: crimson;
+  background: #0d0d0d;
+  box-shadow: 3px 3px 3px #171716;
+  text-align: center;
+  border-radius: 10px;
+  font-weight: 700;
+  padding: 20px 40px;
+  padding-bottom: 20px;
+  width: 600px;
+  margin-left: 10px;
+  font-size: 30px;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 5px;
+
+}
+
+.producTitle:hover {
+  background: crimson;
+  color: rgb(10, 10, 10);
+  transition: 0.3s;
+
+}
+
+.productDescrption {
+  color: #ee5522;
+  background: #0d0d0d;
+  box-shadow: 3px 3px 3px #171716;
+  font-weight: 700;
+  text-align: center;
+  border-radius: 10px;
+  padding: 20px 40px;
+  padding-bottom: 20px;
+  width: 600px;
+  margin-left: 10px;
+  font-size: 40px;
+
+  font-weight: 700;
+  letter-spacing: 3px;
+
+}
+.productDescrption:hover {
+  background:  #ee5522;
+  color: rgb(10, 10, 10);
+  transition: 0.3s;
+
+}
+.productoPriceAndCode {
+  display: flex;
+  justify-content: baseline;
+  font-size: 12px;
+}
+.productPrice {
+  color: chartreuse;
+  background: #0d0d0d;
+  box-shadow: 3px 3px 3px #171716;
+  font-weight: 700;
+  text-align: center;
+  border-radius: 10px;
+  padding: 5px 90px;
+  padding-bottom: 5px;
+  margin-bottom: 30px;
+  font-size: 30px;
+  margin-left: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  
+}
+.productPrice:hover {
+  background:  chartreuse;
+  color: rgb(10, 10, 10);
+  transition: 0.3s;
+
+}
+.productCode {
+  color: blueviolet;
+  margin-left: 20px;
+  background: #0d0d0d;
+  box-shadow: 3px 3px 3px #171716;
+  font-weight: 700;
+  text-align: center;
+  border-radius: 10px;
+  padding: 5px 60px;
+  padding-bottom: 5px;
+  margin-bottom: 30px;
+  font-size: 30px;
+  margin-left: 52px;
+  font-weight: 700;
+  letter-spacing: 3px;
+
+}
+.productCode:hover {
+  background:  blueviolet;
+  color: rgb(10, 10, 10);
+  transition: 0.3s;
+}
+.buttonAddToCartProduct {
+  text-decoration: none;
+  color: #000000;
+
+  border-radius: 10px;
+  background-image: linear-gradient(0deg, #f78a2b, #fe601d);
+  border: none;
+  box-shadow: 2px 2px 0px #fb7d2f;
+
+  font-weight: 700;
+  letter-spacing: 3px;
+  margin-left: 140px;
+  padding: 10px 100px;
+  padding-bottom: 7px;
+}
+.buttonAddToCartProduct:hover {
+  color: #ffffff;
+  transition: 0.3s;
+
+}
+
+.contentInfo {
+
+  margin-left: 20px;
+  margin-top: 50px;
+  width: 800px;
+
+}
+.contentImage {
+
+  margin-top: 30px;
+  margin-left: 30px;
+  border-radius: 30px;
+
+}
+#titleProductId {
+  font-size: 60px;
+  background-image: linear-gradient(0deg, #f7b62b, #f78a2b, #fe601d);
+  -webkit-background-clip: text;
+  color: transparent;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  margin-bottom: 2px;
+  letter-spacing: 40px;
+  font-weight: 700;
+  text-transform: uppercase;
+}

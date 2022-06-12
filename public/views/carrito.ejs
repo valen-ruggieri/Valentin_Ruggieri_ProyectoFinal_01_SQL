@@ -7,32 +7,44 @@
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
     crossorigin="anonymous"
   />
+  <link rel="stylesheet" href="../style.css" />
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CARRITO</title>
 </head>
-<body class="bg-dark m-5">
-<h1 class="text-center  text-secondary  text-opacity-10">CART ITEMS</h1>
-<%- include('../partials/navBar.ejs') %> 
-<div class="d-flex justify-content-center align-items-center m-3">
-<a href="http://localhost:8080/api/carrito/delete" class="badge text-decoration-none bg-danger text-light fs-6">delete cart  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-  <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
-  <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
-</svg></a>
+<body class="bodyCart ">
+  <div class="bg-dark">
+<h1 class=" text-secondary  text-opacity-10" id="titleCart">CART ITEMS</h1>
+<span class="hrShop"></span>
+
 </div>
+<%- include('../partials/navBar.ejs') %> 
+
 <% if(productosCarrito.length){%> 
-        <div class="d-flex flex-row row ms-2 mb-5 bg-dark">
+  <div class="d-flex justify-content-center align-items-center m-3">
+    <a href="http://localhost:8080/api/carrito/delete" class="text-decoration-none  deleteCart  ">Delete cart  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+      <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+      <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+    </svg></a>
+    </div>
+        <div class="d-flex flex-row row ms-2 mb-5 ">
         <% productosCarrito.forEach((productosCarrito ,key) => { %> 
-            <div class="card  m-3 bg-secondary bg-opacity-25  rounded-bottom rounded-3 " style="width: 15rem;">
-              <img src="../images/<%= productosCarrito.img %>" class="card-img-top w-50 pt-3 h-50 m-auto" alt="<%= productosCarrito.img %>" >
+            <div class="cardProduct card  m-3" style="width: 15rem;">
+              <img src="../images/<%= productosCarrito.img %>" class="cardImage" width="150px" height="150px" alt="<%= productosCarrito.img %>" >
              
                 <div class="card-body   ">
-                  <h5 class="card-title text-center bg-primary rounded-3 pb-1"><a  class="text-decoration-none text-light "href="http://localhost:8080/api/productos/productosCarrito/<%= productosCarrito.id %>"><%= productosCarrito.titulo %></a></h5>
-                  <p class=" bg-secondary bg-opacity-25 p-2 text-light rounded-3"><small ><%= productosCarrito.descripcion %> </small></p>
-                  <p class=" text-center badge bg-success w-50 text-light me-4">$<%= productosCarrito.precio %> </p>
-                  <b class="  badge bg-secondary bg-opacity-25 text-light pe-2 ps-2 ms-3">ID :  <%= productosCarrito.codigo %></b>
-                 <a href="http://localhost:8080/api/carrito/delete/<%= productosCarrito.id %> " class="badge text-decoration-none bg-danger text-light ">🗑</a>
+                  <a  class="aLinkToProduct " ><h5 class="card-title"><%= productosCarrito.titulo %></h5></a>
+                  <p class=" cardDescrption"><small ><%= productosCarrito.descripcion %> </small></p>
+                  <div class="contentPriceAndCode">
+                  <p class="  cardPrice">$<%= productosCarrito.precio %> </p>
+                  <p class="  cardCode">ID :  <%= productosCarrito.codigo %></p>
+                </div>
+                 <a href="/api/carrito/delete/<%= productosCarrito.id %> " class="buttonDeleteToCart "><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-trash deleteIcon" viewBox="0 0 16 16">
+                  <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                  <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                </svg></a>
                 </div>
               </div>
              
@@ -43,8 +55,8 @@
 
     
     <% }else{  %> 
-      <div class=" ms-2 mb-5 bg-dark">
-        <h1 class="text-center  text-secondary  text-opacity-10">No existen productos</h1>
+      <div class=" ms-2 mb-5 ">
+        <h1 class="  text-dark dontProductText text-opacity-10">No existen productos</h1>
       </div>
     <% } %> 
 </body>

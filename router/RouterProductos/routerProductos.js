@@ -13,7 +13,11 @@ const {
 const { Data } = require("../RouterUser/routerUser");
 
 routerProducts.use(express.static(path.join(__dirname + "/public")));
-routerProducts.use(express.static(path.join("/public")));
+routerProducts.use(express.static("public"));
+routerProducts.use(express.static("views"));
+routerProducts.use(express.static("partials"));
+
+
 
 const uID = Data;
 
@@ -69,19 +73,20 @@ routerProducts.get("/productos/producto/:id", async (req, res) => {
     .collection("Productos")
     .doc(req.params.id)
     .get();
-  const productoId = {
+  const producto = {
     id: productoFR.id,
     titulo: productoFR.data().titulo,
     precio: productoFR.data().precioFormat,
+    img: productoFR.data().img,
+    titulo: productoFR.data().titulo,
+    timestamp: productoFR.data().timestamp,
+    descripcion: productoFR.data().descripcion,
+    codigo: productoFR.data().codigo,
   };
-  res.render("productoid.ejs", { productoId });
+  res.render("productoid.ejs", { producto,uID });
 });
 
-// >| ruta de chat
 
-routerProducts.get("/productos/chat", (req, res) => {
-  res.render("chatClient.ejs");
-});
 
 //%                   ADMINISTRADOR
 
@@ -143,12 +148,13 @@ routerProducts.get("/productos/form", (req, res) => {
     return res.redirect("/errorRoute");
   }
 
-  res.render("tienda.ejs", { imgRandom: imgRandom() });
+  res.render("tienda.ejs");
 });
 
 //>| ruta post de actualizacion de productos
 
-routerProducts.post("/productos/producto/update/:id", async (req, res) => {
+
+routerProducts.post("/productos/update/:id", async (req, res) => {
   if (!userPermissionsAdmin(uID.userPermission)) {
     return res.redirect("/errorRoute");
   }
@@ -165,12 +171,12 @@ routerProducts.post("/productos/producto/update/:id", async (req, res) => {
 
   res.redirect("/api/productos/all");
 });
-routerProducts.get("/productos/producto/update/:id", (req, res) => {
-  if (!userPermissionsAdmin(uID.userPermission)) {
-    return res.redirect("/errorRoute");
-  }
 
-  res.render("formUpdate.ejs", { imgRandom: imgRandom() });
+
+routerProducts.get("/productos/update/:id", (req, res) => {
+  if (!userPermissionsAdmin(uID.userPermission)) {return res.redirect("/errorRoute");}
+  res.render("formUpdate.ejs");
 });
+
 
 module.exports = routerProducts;

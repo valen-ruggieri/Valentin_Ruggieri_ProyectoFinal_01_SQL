@@ -7,18 +7,42 @@
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
     crossorigin="anonymous"
   />
+<link rel="stylesheet" href="../../style.css" />
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>productos</title>
 </head>
-<body class="bg-dark m-5 container">
-<h1 class="text-center  text-secondary  text-opacity-10">Productos</h1>
-<h5 class="text-center bg-primary rounded-3 text-light pb-1"><a class="w-100 text-decoration-none text-light" href="http://localhost:8080/api/productos/producto/<%= productoId.id %>"><%= productoId.titulo %></a></h5>
-<p class=" bg-secondary bg-opacity-25 p-2 text-light rounded-3"><small >Lorem ipsum dolor sit amet consectetur adipisicing elit.</small></p>
-<p class=" text-center badge bg-success w-50 text-light me-4">$<%= productoId.precio %> </p>
-<a href="http://localhost:8080/api/productos/delete/<%= productoId.id %> " class="w-100 text-decoration-none badge bg-danger">🗑</a>
-          
+
+
+
+<body id="bodyProductId">
+<div class="bg-dark">
+  <h1 id="titleProductId"><%= producto.titulo %></h1>
+  <hr class="hrShop">
+</div>
+<%- include('../partials/navBar.ejs') %> 
+
+  <div class="product" >
+    <div class="contentImage">
+      <img src="../../images/<%= producto.img %>" class=" productImage"  width="300px" height="300px" alt="<%= producto.img %>" >
+
+    </div>
+    <div class="contentInfo">
+      <h5 class="producTitle "><%= producto.titulo %></h5>
+      <p class=" productDescrption"><small ><%= producto.descripcion %></small></p>
+     <div class="productoPriceAndCode">
+      <p class=" productPrice">$<%= producto.precio %> </p>
+      <p class=" productCode">ID : <%= producto.codigo %></p>
+     
+     </div>
+      <a href="http://localhost:8080/api/carrito/add/<%= producto.id  %> " class="buttonAddToCartProduct ">ADD TO CAR</a>
+
+    </div>
+     
+    </div>
+   
    
 </body>
 </html>
