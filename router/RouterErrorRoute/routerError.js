@@ -5,6 +5,7 @@ const logger = require("../../utils/logger");
 
 routerError.use(express.static(path.join(__dirname + '/public')))
 
+
 routerError.get('/errorRoute',(req,res)=>{
     res.render('errorRoute.ejs')
 })

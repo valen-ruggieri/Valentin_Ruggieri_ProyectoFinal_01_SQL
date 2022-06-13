@@ -9,57 +9,71 @@
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
     crossorigin="anonymous"
   />
+  <link rel="icon" href="https://cdn-icons.flaticon.com/png/512/4066/premium/4066724.png?token=exp=1655052569~hmac=cd438b068da505a91ff672ea6e7bdf16"/>
+
   <link rel="stylesheet" href="../../style.css" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form Update</title>
+    <title>Update Product</title>
 </head>
 <body class=" bodyShopClient ">
 
 
   
   <form class="container  formAddProduct"  method="POST" enctype="multipart/form-data" >
+    <a class="exitIconForm" href="/api/productos/all" >X</a>
     <h1 class="titleFormAddProduct  ">UPDATE PRODUCT</h1>
 
 
 
     </div>
     <div class="col d-flex justify-content-center ">
-      <div class="input-group mt-4 w-50 ">
+      <div class="input-group mt-2 w-50 ">
   
         <input required type="text" class="  bg-secondary inputStyleForm   bg-opacity-10 "
           placeholder="Nombre Producto" name="titulo" />
       </div>
     </div>
+    <p class=" mt-2 inputConditionsProducts "> <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-info-circle me-2 align-middle mb-1" viewBox="0 0 16 16">
+      <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+      <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+    </svg>Debe tener solo caracteres alfabeticos y no mas de 10</p>
     <div class="col d-flex justify-content-center ">
-      <div class="input-group mt-5 w-50 ">
+      <div class="input-group mt-2 w-50 ">
      
         <input required type="number" class="  bg-secondary bg-secondary inputStyleForm   bg-opacity-10"
           placeholder="Precio Producto" name="precio">
 
       </div>
     </div>
-
+    <p class=" mt-2 inputConditionsProducts "> <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-info-circle me-2 align-middle mb-1" viewBox="0 0 16 16">
+      <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+      <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+    </svg>Debe tener maximo 7 caracteres numericos </p>
 
     <div class="col d-flex justify-content-center ">
-      <div class="input-group mt-5 w-50 ">
+      <div class="input-group mt-2 w-50 ">
     
         <input required type="text" class="inputStyleForm  bg-secondary bg-secondary  bg-opacity-10"
           placeholder="Descripcion Producto" name="descripcion" />
       </div>
     </div>
-
+    <p class=" mt-2 inputConditionsProducts "> <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-info-circle me-2 align-middle mb-1" viewBox="0 0 16 16">
+      <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+      <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+    </svg>Debe tener menos de veinte letras, mas de seis y caracteres alfabeticos</p>
     <div class="col d-flex justify-content-center ">
-      <div class="input-group mt-5 w-50 ">
+      <div class="input-group mt-2 w-50 ">
   
         <input required type="text" class="inputStyleForm   bg-secondary bg-secondary bg-opacity-10"
           placeholder="Codigo Producto" name="codigo" />
       </div>
-    </div> -->
-
-
+    </div> 
  
-
+    <p class=" mt-2 inputConditionsProducts "> <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-info-circle me-2 align-middle mb-1" viewBox="0 0 16 16">
+      <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+      <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+    </svg>Debe tener entre 6 y 7 caracteres alfanumericos </p>
 
     <div class="col d-flex justify-content-center">
      
@@ -68,10 +82,13 @@
         <input type="file" name="image" class="selectFile" id="inputGroupFile01">
       </div>
     </div> 
-
-    <div class="col d-flex justify-content-center ">
+    <p class=" inputConditionsProducts "> <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-info-circle me-2 align-middle mb-1 " style="margin-left: 70px;" viewBox="0 0 16 16">
+      <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+      <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+    </svg> Debe ser una imagen sin fondo y menor a 100kb </p>
+    <div class="col d-flex mt-4 justify-content-center ">
       <input type="submit"  placeholder="Last name" id="buttonSendFormAddProduct"
-        aria-label="Last name" />
+        aria-label="Last name" value="UPDATE"/>
     </div>
 
   </form>

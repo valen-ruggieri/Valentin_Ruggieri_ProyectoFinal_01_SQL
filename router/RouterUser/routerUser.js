@@ -22,7 +22,7 @@ const userSession = async (email, password) => {
     .get();
   const dataRef = user.docs.map((user) => ({
     id: user.id,
-    name: user.data().name,
+    userName: user.data().name,
     password: user.data().password,
     userPermission: user.data().userType,
   }));
@@ -43,9 +43,10 @@ routerUser.post("/user",validation(userschema), async (req, res) => {
     .collection("Users")
     .add({ name, email, password, userType});
 
-  const { id, userPermission} = await userSession(email, password);
+  const { id, userPermission , userName} = await userSession(email, password);
   Data.id = id;
   Data.userPermission = userPermission;
+  Data.userName = userName;
   logger.info('Sesion de '+Data.userPermission+' Iniciada - uID:'+Data.id)
   if (userType === "cliente") {
     return res.redirect("/api/productos/tienda");

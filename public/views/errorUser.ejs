@@ -9,6 +9,9 @@
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
     crossorigin="anonymous"
   />
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/753/753345.png"/>
+
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,13 +23,15 @@
 	<div id="notfound">
 		<div class="notfound">
 			<div class="notfound-404">
-				<h3>Oops! Page not found</h3>
+				<h3 style="text-shadow: 1px 1px 1px #000000">Oops! Page not found</h3>
 				<h1><span>4</span><span>0</span><span>0</span></h1>
 			</div>
            
-			<h2> <%= errorName %> </h2>
-      <h2><%= errorDescription %> </h2>
-        <a class="text-decoration-none text-white" href="/"> <button type="button" class="btn btn-dark m-3 rounded-pill p-3 pe-5 ps-5" >GO TO HOMEPAGE</button></a>
+			<h2  style="text-shadow: 1px 1px 1px #2e2e2e"> <%= errorName %> </h2>
+      <h2  style="text-shadow: 1px 1px 1px #2e2e2e"><%= errorDescription %> </h2>
+      <h2 class="text-danger " style="font-weight: 900; text-shadow: 2px 2px 2px #000000">Failed to sign in user </h2>
+
+        <a class="text-decoration-none " href="/"> <button type="button" class=" bg-dark m-3 buttonTry  rounded-pill p-3 pe-5 ps-5" >GO TO HOMEPAGE</button></a>
             
 		</div>
 	</div>

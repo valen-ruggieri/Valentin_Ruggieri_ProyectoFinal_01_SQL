@@ -7,18 +7,20 @@
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
     crossorigin="anonymous"
   />
+  <link rel="icon" href="https://cdn-icons.flaticon.com/png/512/477/premium/477420.png?token=exp=1655051858~hmac=8e4fa86d16d6faf71249f9d4781dda8e"/>
+
 <link rel="stylesheet" href="../style.css" />
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>productos</title>
+    <title>Panel Admin</title>
 </head>
 <body id="bodyPanelAdmin">
-<div class="bg-dark">
+<div class="bg-black">
   <h1 id="titlePanelAdmin">PANEL ADMIN</h1>
 
-<hr class="hrShop">
+<span class="hrShop"></span>
 </div>
 <%- include('../partials/navBar.ejs') %> 
     <% if(productos.length){%> 
@@ -52,8 +54,8 @@
 
     
     <% }else{  %> 
-      <div class=" ms-2 mb-5 bg-dark">
-        <h1 class="text-center  text-secondary  text-opacity-10">No existen productos</h1>
+      <div class=" ms-2 mb-5 ">
+        <h1 class="  text-dark dontProductText text-opacity-10">There are no products</h1>
       </div>
     <% } %> 
 <script src="./socket.io/socket.io.min.js"></script>

@@ -12,7 +12,7 @@ routerChat.use(express.static( 'views'))
 const uID = Data;
 
 routerChat.get('/chat',(req,res)=>{
-  if (!userPermissionsClient(uID.userPermission)){return res.redirect('/errorRoute') }
+   if (!userPermissionsClient(uID.userPermission)){return res.redirect('/errorRoute') }
 
     res.render('chatPage.ejs',{uID})
   })

@@ -9,7 +9,7 @@ try {
     next()
     
 } catch (error) {
-    logger.info(error)
+   
     const errorName = error.name
     const errorDescription = error.errors
     return res.render('errorUser.ejs',{errorName,errorDescription})

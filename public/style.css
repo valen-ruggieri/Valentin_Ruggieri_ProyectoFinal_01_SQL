@@ -1,10 +1,14 @@
+
+
+/* home */
+
 #homeBody {
   background-image: url("./src/sun-tornado.png");
 }
 
 #titleHome {
   font-size: 90px;
-
+color: #1d1d1d;;
   text-align: center;
   margin-top: 90px;
   letter-spacing: 40px;
@@ -12,20 +16,67 @@
 }
 
 #subTitleHome {
-  font-size: 30px;
 
+  font-size: 30px;
+  color: #1d1d1d;;
   text-align: center;
-  margin-top: 10px;
+  margin-top: 20px;
   letter-spacing: 40px;
   font-weight: 700;
+ 
 }
+
+.buttonGithub{
+
+  padding: 10px 20px;
+  background-color: #1a1a18;
+  color: #ee5522;
+  border-radius: 40px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  box-shadow: 2px 2px 2px #000000;
+  margin-left: 30px;
+}
+.buttonHome{
+
+  padding: 10px 70px;
+  background-color: #1a1a18;
+  color: #ee5522;
+  border-radius: 40px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  box-shadow: 2px 2px 2px #000000;
+}
+.buttonHome a{
+ 
+  color: #ee5522;
+  text-decoration: none;
+ 
+}
+.buttonGithub a{
+ 
+  color: #ee5522;
+ text-decoration: none;
+}
+.buttonHome a:hover, .buttonGithub a:hover{
+  color: #ffffff;
+  
+}
+.buttonHome:hover, .buttonGithub:hover{
+ box-shadow: 1px 1px 1px #000000;
+ color: #ffffff;
+}
+
+/* user */
 
 #bodyFormUser {
   background-image: url("./src/sun-tornado.png");
 }
 #titleUser {
   font-size: 90px;
-
+color: #1d1d1d;;
   text-align: center;
   margin-top: 90px;
   letter-spacing: 40px;
@@ -36,9 +87,24 @@
   text-align: center;
   margin-top: 20px;
   letter-spacing: 9px;
+  color: #1d1d1d;;
   font-weight: 700;
 }
-
+.buttonSignIn{
+  padding: 10px 70px;
+  background-color: #1a1a18;
+  color: #ee5522;
+  border-radius: 40px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  box-shadow: 2px 2px 2px #000000;
+}
+.buttonSignIn:hover{
+  color: #ffffff;
+  box-shadow: 1px 1px 1px #000000;
+  transition: 0.2s;
+}
 .modal-content {
   border-radius: 50px;
   background: linear-gradient(145deg, #1a1a18, #1f1f1d);
@@ -302,14 +368,17 @@
 
 .navbarBody {
   border-radius: 40px;
-  margin: 5px 10px;
+  margin: 10px 10px;
+  background: linear-gradient(145deg, #1a1a18, #1f1f1d);
+  box-shadow: 5px 5px 3px #171716;
 }
 .navbarContainer {
   display: flex;
   margin-left: 60px;
+ 
 }
 .permissionsText {
-  margin-left: 100px;
+  margin-left: 50px;
   background-image: linear-gradient(0deg, #f7b62b, #f78a2b, #fe601d);
   -webkit-background-clip: text;
   color: transparent;
@@ -361,27 +430,27 @@
   letter-spacing: 10px;
   font-weight: 700;
 }
-.deleteCart {
-  color: #1a1a18;
-  border-radius: 30px;
-  padding: 20px 40px;
-  font-size: 20px;
-  letter-spacing: 4px;
-  border: 3px solid #1a1a18;
-  box-shadow: 2px 2px 0px #000000;
-}
-.deleteCart:hover {
+
+.deleteCart{
+  text-decoration: none;
+ background-image: linear-gradient(180deg,#ee5522,#f78a2b,#fdad31);
   color: #000000;
   border-radius: 30px;
-  padding: 20px 40px;
-  font-size: 20px;
-  letter-spacing: 4px;
-  border: 3px solid #1a1a18;
-  box-shadow: 2px 2px 0px #000000;
-  background-image: linear-gradient(180deg, #f7b62b, #f78a2b);
-  transition: 0.3s;
-
+  font-weight: 700;
+  padding: 10px 40px;
+  letter-spacing: 3px;
+  box-shadow: 2px 2px 2px #000000a3;
+  text-transform: uppercase;
 }
+
+.deleteCart:hover{
+transition: 0.1s;
+  color: #ffffff;
+  box-shadow: 0px 0px 0px #000000a3;
+  
+}
+
+
 
 /* chat */
 
@@ -413,6 +482,166 @@
   margin-bottom: 90px;
 }
 
+.messagesBoxStyle{
+  background-color: #0b0b0b00;
+  text-align: start;
+  margin-bottom: 20px;
+  width: 1000px;
+
+  
+}
+.messageStyle{
+  animation-name: opacityFunc;
+  animation-duration: 1s;
+  background-color: #171716;
+  border-radius: 20px;
+  box-shadow: 2px 2px 2px #000000;
+  font-size: 10px;
+ max-width: 300px;
+ height: 60px;
+font-size: 15px;
+ margin: 10px 0px ;
+ padding: 5px 5px;
+ 
+}
+@keyframes opacityFunc{
+  0%{opacity: 0;transform: translate(400px,0px);}
+  
+}
+.autorMessage{
+ background-image: linear-gradient(45deg, #ff560e, #fe7700,#f7b62b);
+  -webkit-background-clip: text;
+  color: transparent;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+font-weight: 700;
+font-size: 15px;
+margin-bottom: 2px;
+margin-left: 20px;
+
+}
+
+.textMessage{
+  background-image: linear-gradient(45deg, #757575, #c6c6c6, #ffffff);
+  -webkit-background-clip: text;
+  color: transparent;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+text-align: start;
+margin-left: 20px;
+
+}
+.labelChat{
+  color: #757575;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 1px #000000;
+  
+  margin-left: 10px;
+}
+.dateMessage{
+color: #b9b9b9;
+position: absolute;
+left: 32.5%;
+
+
+font-size: 10px;
+margin-top: 5px;
+
+}
+.containerAutor{
+  display: flex;
+  justify-content: start;
+  
+
+}
+.containerMessage{
+
+display: flex;
+justify-content: start;
+animation-name: opacityMessage;
+animation-duration: 1.5s;
+}
+
+@keyframes opacityMessage{
+  0%{opacity: 0;}
+  50%{opacity: 0;}
+  70%{opacity: 0;}
+  
+}
+.deleteChatButton{
+  text-decoration: none;
+ background-image: linear-gradient(45deg,#ee5522,#f78a2b);
+  color: #000000;
+  border-radius: 30px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  box-shadow: 2px 2px 2px #000000a3;
+}
+
+.deleteChatButton:hover{
+transition: 0.1s;
+  color: #ffffff;
+  box-shadow: 0px 0px 0px #000000a3;
+  
+}
+
+.inputChat{
+  background-color: #2a2a2a53;
+  color: #b9b9b9;
+  box-shadow: 2px 2px 2px #000000a3;
+  border-radius: 10px;
+  padding: 5px;
+  border: none;
+  font-weight: 700;
+  text-align: center;
+}
+
+.inputChat:focus{
+  outline: unset;
+  background-color: transparent;
+}
+
+.buttonSendMChat{
+ border-radius: 10px;
+ margin-left: 20px;
+ background-image: linear-gradient(45deg,#ee5522,#f78a2b);
+  font-weight: 500;
+  padding:3px  7px;
+  letter-spacing: 2px;
+ box-shadow: 3px 3px 3px #000000; 
+ 
+}
+.buttonSendMChat:hover{
+transition: 0.2s;
+  background-image: linear-gradient(45deg,#ee5522,#f78a2b);
+  box-shadow: 1px 1px 1px #000000; 
+  
+ }
+.buttonSendMChat a {
+  color: #ffffff;
+  text-decoration: none;
+  text-shadow: 1px 1px 1px #000000;
+  text-transform: uppercase;
+}
+
+
+.buttonSendDisabled{
+  border-radius: 10px;
+  margin-left: 20px;
+  background-color: #3d3d3d53;
+  box-shadow: 2px 2px 2px #000000a3;
+   font-weight: 500;
+   padding:3px  7px;
+   letter-spacing: 2px;
+ }
+ .buttonSendDisabled a {
+  color: #6d6d6d;
+  text-decoration: none;
+  text-transform: uppercase;
+}
 /* panel admin */
 
 #bodyPanelAdmin {
@@ -448,7 +677,13 @@
 #titleFormUpdate {
   color: #f52525;
 }
-
+.inputConditionsProducts {
+  font-size: 11px;
+  color: rgba(170, 170, 170, 0.84);
+  max-width: 530px;
+  text-align: start;
+  margin-left: 230px;
+}
 /* form produtc add */
 
 #bodyFormAddProduct {
@@ -457,6 +692,30 @@
   background-attachment: fixed;
   background-size: cover;
 }
+
+.exitIconForm {
+ 
+color: #fb7d2f;
+  position: absolute;
+  top: 2.2%;
+  left: 94.3%;
+  box-shadow: 2px 2px 2px #000000;
+font-size: 20px;
+padding: 5px 10px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: 900;
+  text-shadow: 1px 1px #000000;
+
+}
+.exitIconForm:hover{
+  color: #ffffff;
+  box-shadow: 1px 1px 1px #000000;
+
+  transition: 0.3s;
+
+}
+
 
 .formAddProduct {
   border-radius: 30px;
@@ -514,8 +773,9 @@
   border-radius: 10px;
   margin-left: 120px;
 
-  margin-top: 25px;
+  margin-top: 5px;
   border: none;
+  margin-bottom: -30px;
 }
 .buttonUploadFile p {
   color: #f78a2b;
@@ -556,7 +816,7 @@
   display: flex;
   justify-content: center;
   position: absolute;
-  top: 30%;
+  top: 29%;
   left: 13%;
 }
 .productImage {
@@ -622,7 +882,7 @@
   font-weight: 700;
   text-align: center;
   border-radius: 10px;
-  padding: 5px 90px;
+  padding: 5px 80px;
   padding-bottom: 5px;
   margin-bottom: 30px;
   font-size: 30px;
@@ -645,11 +905,11 @@
   font-weight: 700;
   text-align: center;
   border-radius: 10px;
-  padding: 5px 60px;
+  padding: 5px 50px;
   padding-bottom: 5px;
   margin-bottom: 30px;
   font-size: 30px;
-  margin-left: 52px;
+  margin-left: 42px;
   font-weight: 700;
   letter-spacing: 3px;
 
@@ -683,7 +943,7 @@
 .contentInfo {
 
   margin-left: 20px;
-  margin-top: 50px;
+  margin-top: 30px;
   width: 800px;
 
 }
@@ -706,4 +966,9 @@
   letter-spacing: 40px;
   font-weight: 700;
   text-transform: uppercase;
+}
+
+.bg-black{
+  background: linear-gradient(145deg, #1a1a18, #1f1f1d);
+  box-shadow: 0px 5px 3px #000000;
 }

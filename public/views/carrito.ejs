@@ -12,10 +12,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CARRITO</title>
+  <link rel="icon" href="https://cdn-icons.flaticon.com/png/512/477/premium/477420.png?token=exp=1655051858~hmac=8e4fa86d16d6faf71249f9d4781dda8e"/>
+
+    <title>Cart</title>
 </head>
 <body class="bodyCart ">
-  <div class="bg-dark">
+  <div class="bg-black">
 <h1 class=" text-secondary  text-opacity-10" id="titleCart">CART ITEMS</h1>
 <span class="hrShop"></span>
 
@@ -24,10 +26,10 @@
 
 <% if(productosCarrito.length){%> 
   <div class="d-flex justify-content-center align-items-center m-3">
-    <a href="http://localhost:8080/api/carrito/delete" class="text-decoration-none  deleteCart  ">Delete cart  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+    <a href="/api/carrito/delete" class="text-decoration-none  deleteCart  "><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-trash mb-1 me-2" viewBox="0 0 16 16">
       <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
       <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
-    </svg></a>
+    </svg>Delete cart  </a>
     </div>
         <div class="d-flex flex-row row ms-2 mb-5 ">
         <% productosCarrito.forEach((productosCarrito ,key) => { %> 
@@ -56,7 +58,7 @@
     
     <% }else{  %> 
       <div class=" ms-2 mb-5 ">
-        <h1 class="  text-dark dontProductText text-opacity-10">No existen productos</h1>
+        <h1 class="  text-dark dontProductText text-opacity-10">There are no products</h1>
       </div>
     <% } %> 
 </body>

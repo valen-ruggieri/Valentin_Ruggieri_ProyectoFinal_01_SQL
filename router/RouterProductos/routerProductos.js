@@ -11,11 +11,15 @@ const {
   userPermissionsAdmin,
 } = require("../../utils/permissions");
 const { Data } = require("../RouterUser/routerUser");
+const validation = require("../../utils/Middlewares/validationMiddleware");
+const productSchema = require("../../Validations/productValidation");
+const validationProduct = require("../../utils/Middlewares/validationProduct");
 
 routerProducts.use(express.static(path.join(__dirname + "/public")));
 routerProducts.use(express.static("public"));
 routerProducts.use(express.static("views"));
 routerProducts.use(express.static("partials"));
+
 
 
 
@@ -122,9 +126,11 @@ routerProducts.get("/productos/delete/:id", async (req, res) => {
   res.redirect("/api/productos/all");
 });
 
+
+
 // >| ruta post de productos
 
-routerProducts.post("/productos/form", async (req, res) => {
+routerProducts.post("/productos/form", validationProduct(productSchema),async (req, res) => {
   if (!userPermissionsAdmin(uID.userPermission)) {
     return res.redirect("/errorRoute");
   }
@@ -148,13 +154,13 @@ routerProducts.get("/productos/form", (req, res) => {
     return res.redirect("/errorRoute");
   }
 
-  res.render("tienda.ejs");
+  res.render("formAdd.ejs");
 });
 
 //>| ruta post de actualizacion de productos
 
 
-routerProducts.post("/productos/update/:id", async (req, res) => {
+routerProducts.post("/productos/update/:id",validationProduct(productSchema), async (req, res) => {
   if (!userPermissionsAdmin(uID.userPermission)) {
     return res.redirect("/errorRoute");
   }

@@ -2,14 +2,16 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
-* {
+* { 
+   
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'Press Start 2P';
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     color: #FFFFFF;
     text-align: center;
 }
+
 
 body {
   background-color: #000000;
@@ -26,14 +28,17 @@ section.notFound {
 section.notFound h1 {
     color: red;
     font-size: 80px;
+    
 }
 
 section.notFound h2 {
     font-size: 50px;
+
 }
 
 section.notFound h1, h2, h3 {
     margin-bottom: 40px;
+    letter-spacing: 3px;
 }
 
 div.text {
@@ -44,6 +49,7 @@ div.text {
 div.text a {
     text-decoration: none;
     margin-right: 20px;
+    font-size: 20px;
 }
 
 div.text a:hover {
