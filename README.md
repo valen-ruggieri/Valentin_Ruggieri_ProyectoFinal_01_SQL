@@ -1,13 +1,11 @@
-# Valentin_Ruggieri_ProyectoFinal_01
+# Valentin_Ruggieri_ProyectoFinal_01_SQL
 
 ## Funcionamiento
 
 ![Video de funcionamiento de la App](https://media.giphy.com/media/OgKHI1g8jpomp6K9VK/giphy.gif)
 
 ## Inicio
-En esta primer entrega del proyecto utilizaremos todos los contenidos aprendidos hatsa el momento para crear un ecommerce.
-Nuestro ecommerce presenta una vista de home inicial que redirige hacia la pagina de usuario donde podremos registrarnos.
-Alli completaremos un formulario en el cual especificamos nuestros datos y ademas el tipo de permiso con el que ingresaremos.
+En este desafio migraremos todo el proyecto final creado hasta el momento con firestore database a base de datos relacionales mysql y sqlite3
 
 ## Permisos
 Los tipos de permisos sirven para poder acceder a difernetes vistas como asi tambien funcionalidades.
@@ -43,7 +41,8 @@ Los errores contemplados en nuestro ecommerce son:
   - Socket.io para poder crear el chat de la pagina del cliente.
   - Css y Bootstrap para poder realizar el maquetado, diseno y animaciones de nuestro proyecto.
   - Yup para poder crear los esquemas de validaciones.
-  - Firestore Database para poder almacenar alli nuestros datos de usuarios, carritos y productos.
+  - Mysql para poder almacenar alli nuestros datos de usuarios, carritos y productos.
+  - Sqlite3 para poder almacenar los mensagges del chat e interactuar con ellos.
  
  ## Especificaciones extras
   - Para poder realizar un inicio de sesion utilizamos la informacion brindada en el registro del usuario, la cual es almacenada en firestore para luego ser accedida y de alli poder obtener el id de usuario y los permisos del mismo y guardarlos en una variable la cual usaremos para validar las rutas y mostar informacion del mismo.
@@ -59,6 +58,7 @@ Los errores contemplados en nuestro ecommerce son:
 - Css
 - Yup
 - Socket.io
-- Firestore Database
+- Mysql
+- Sqlite3
 
 
