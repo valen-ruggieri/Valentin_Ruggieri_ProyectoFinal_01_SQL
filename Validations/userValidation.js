@@ -1,7 +1,7 @@
 const yup = require("yup");
 
 const userschema = yup.object({
-  name: yup.string().max(10).matches(/^[A-Za-z ]*$/, 'Please enter valid name').required(),
+  userName: yup.string().max(10).matches(/^[A-Za-z ]*$/, 'Please enter valid name').required(),
   email: yup.string().email().required(),
   password: yup
     .string()

@@ -1,5 +1,6 @@
-const socket = io();
 
+
+const socket = io();
 const divMessages = document.querySelector("#messagesBox");
 const inputAutor = document.querySelector("#autorEmail");
 const inputText = document.querySelector("#message");

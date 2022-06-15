@@ -3,9 +3,8 @@ const routerProducts = express.Router();
 const path = require("path");
 const multer = require("multer");
 const logger = require("../../utils/logger");
-const database = require("../../firebase/firebase");
-const config = require("../../utils/config");
-
+const ProductsController = require("../../controllers/productsController");
+const productController = new ProductsController();
 const {
   userPermissionsClient,
   userPermissionsAdmin,
@@ -19,9 +18,6 @@ routerProducts.use(express.static(path.join(__dirname + "/public")));
 routerProducts.use(express.static("public"));
 routerProducts.use(express.static("views"));
 routerProducts.use(express.static("partials"));
-
-
-
 
 const uID = Data;
 
@@ -46,108 +42,57 @@ routerProducts.use(
 
 // $   Puede ver y agregar productos al carrito como asi tambien logearse
 
-// >| get productos
+// >| getProducts
 routerProducts.get("/productos/tienda", async (req, res) => {
   if (!userPermissionsClient(uID.userPermission)) {
     return res.redirect("/errorRoute");
   }
-
-  const querySnapshot = await database.collection("Productos").get();
-  const productos = querySnapshot.docs.map((doc) => ({
-    id: doc.id,
-    img: doc.data().img,
-    titulo: doc.data().titulo,
-    precio: doc.data().precioFormat,
-    timestamp: doc.data().timestamp,
-    descripcion: doc.data().descripcion,
-    codigo: doc.data().codigo,
-    producto: ` ${doc.data().titulo}, ${doc.data().precioFormat}`,
-    // ` ${doc.data().img},${ doc.data().titulo},${doc.data().precioFormat},${doc.data().timestamp},${doc.data().descripcion},${doc.data().codigo}`
-  }));
-  res.render("productosClientes.ejs", { productos , uID});
+  productController.getProductsClient(req, res);
 });
 
-// >| get id productos
+//>|  getProductId
 
 routerProducts.get("/productos/producto/:id", async (req, res) => {
   if (!userPermissionsClient(uID.userPermission)) {
     return res.redirect("/errorRoute");
   }
-  const productoFR = await database
-    .collection("Productos")
-    .doc(req.params.id)
-    .get();
-  const producto = {
-    id: productoFR.id,
-    titulo: productoFR.data().titulo,
-    precio: productoFR.data().precioFormat,
-    img: productoFR.data().img,
-    titulo: productoFR.data().titulo,
-    timestamp: productoFR.data().timestamp,
-    descripcion: productoFR.data().descripcion,
-    codigo: productoFR.data().codigo,
-  };
-  res.render("productoid.ejs", { producto,uID });
+  productController.getProductId(req, res);
 });
-
-
 
 //%                   ADMINISTRADOR
 
 //%     Puede agregar, editar y borrar productos como asi tambien logearse
 
-// >| get productos
+//>| getProducts
 routerProducts.get("/productos/all", async (req, res) => {
   if (!userPermissionsAdmin(uID.userPermission)) {
     return res.redirect("/errorRoute");
   }
 
-  const querySnapshot = await database.collection("Productos").get();
-  const productos = querySnapshot.docs.map((doc) => ({
-    id: doc.id,
-    img: doc.data().img,
-    titulo: doc.data().titulo,
-    precio: doc.data().precioFormat,
-    timestamp: doc.data().timestamp,
-    descripcion: doc.data().descripcion,
-    codigo: doc.data().codigo,
-  }));
-  res.render("productosAdmin.ejs", { productos, uID });
+  productController.getProductsAdmin(req, res);
 });
 
-// >| delete producto
+// >| deleteProduct
 
 routerProducts.get("/productos/delete/:id", async (req, res) => {
   if (!userPermissionsAdmin(uID.userPermission)) {
     return res.redirect("/errorRoute");
   }
-
-  await database.collection("Productos").doc(req.params.id).delete();
-  res.redirect("/api/productos/all");
+  productController.deleteProduct(req, res);
 });
 
+// >|  postProduct
 
-
-// >| ruta post de productos
-
-routerProducts.post("/productos/form", validationProduct(productSchema),async (req, res) => {
-  if (!userPermissionsAdmin(uID.userPermission)) {
-    return res.redirect("/errorRoute");
+routerProducts.post(
+  "/productos/form",
+  validationProduct(productSchema),
+  async (req, res) => {
+    if (!userPermissionsAdmin(uID.userPermission)) {
+      return res.redirect("/errorRoute");
+    }
+    productController.postProduct(req, res);
   }
-
-  const { titulo, precio, descripcion, codigo} = req.body;
-
-  const img = req.file.filename
-
-  const precioFormat = Number(precio);
-  const date = new Date();
-  const timestamp = ` ${date.getDay()}/ ${date.getMonth()}/${date.getFullYear()} - ${date.getHours()}: ${date.getMinutes()}: ${date.getSeconds()}`;
-
-  await database
-    .collection("Productos")
-    .add({ titulo, precioFormat, timestamp, descripcion, codigo, img });
-  res.redirect("/api/productos/all");
-});
+);
 
 routerProducts.get("/productos/form", (req, res) => {
   if (!userPermissionsAdmin(uID.userPermission)) {
@@ -157,32 +102,25 @@ routerProducts.get("/productos/form", (req, res) => {
   res.render("formAdd.ejs");
 });
 
-//>| ruta post de actualizacion de productos
+// >|  updateProduct
 
+routerProducts.post(
+  "/productos/update/:id",
+  validationProduct(productSchema),
+  async (req, res) => {
+    if (!userPermissionsAdmin(uID.userPermission)) {
+      return res.redirect("/errorRoute");
+    }
+    productController.updateProduct(req, res);
+  }
+);
 
-routerProducts.post("/productos/update/:id",validationProduct(productSchema), async (req, res) => {
+routerProducts.get("/productos/update/:id", (req, res) => {
   if (!userPermissionsAdmin(uID.userPermission)) {
     return res.redirect("/errorRoute");
   }
 
-  const { titulo, precio, descripcion, codigo } = req.body;
-  const img =  req.file.filename 
-  const precioFormat = Number(precio);
-  const date = new Date();
-  const timestamp = ` ${date.getDay()}/ ${date.getMonth()}/${date.getFullYear()} - ${date.getHours()}: ${date.getMinutes()}: ${date.getSeconds()}`;
-  await database
-    .collection("Productos")
-    .doc(req.params.id)
-    .update({ titulo, precioFormat, timestamp, descripcion, codigo, img });
-
-  res.redirect("/api/productos/all");
-});
-
-
-routerProducts.get("/productos/update/:id", (req, res) => {
-  if (!userPermissionsAdmin(uID.userPermission)) {return res.redirect("/errorRoute");}
   res.render("formUpdate.ejs");
 });
-
 
 module.exports = routerProducts;
