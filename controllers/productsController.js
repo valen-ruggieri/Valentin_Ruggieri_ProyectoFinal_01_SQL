@@ -35,7 +35,6 @@ class ProductsController {
         .select("*")
         .where("id", req.params.id);
       producto = producto[0];
-      console.log(producto);
       res.render("productoId.ejs", { producto, uID });
     } catch (error) {
       console.log(error);

@@ -12,12 +12,26 @@ routerChat.use(express.static("views"));
 
 const uID = Data;
 
-routerChat.get("/chat", (req, res) => {
+routerChat.post("/chat", (req, res) => {
   if (!userPermissionsClient(uID.userPermission)) {
     return res.redirect("/errorRoute");
   }
-  // todo|   getMessages
-  chatController.getMessages(req,res);
-});
+  const { autor, text } = req.body;
+  chatController.addMessages({ autor, text });
 
+  res.redirect("/chat");
+});
+routerChat.get("/chat", async (req, res) => {
+  if (!userPermissionsClient(uID.userPermission)) {
+    return res.redirect("/errorRoute");
+  }
+  await chatController.getMessages(req, res);
+});
+routerChat.get("/chat/delete", async (req, res) => {
+  if (!userPermissionsClient(uID.userPermission)) {
+    return res.redirect("/errorRoute");
+  }
+  await chatController.deleteMessages();
+  res.redirect("/chat");
+});
 module.exports = routerChat;

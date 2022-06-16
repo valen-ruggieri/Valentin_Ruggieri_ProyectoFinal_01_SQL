@@ -9,53 +9,38 @@ class ChatController {
   // todo|   inintChat
 
   async initChaT() {
-
-
-   try{ 
-   await database.schema.dropTableIfExists(tableChat)
-    await database.schema.createTableIfNotExists(tableChat, (table) => {
-      table.string("autor");
-      table.string("date");
-      table.string("text");
-    });
-    console.log("chat iniciado");}
-    catch(error){
-      console.log(error)
-    }
-  }
-
-  // todo|   arrayMessages
-  async arrayMessages() {
     try {
-      const arrayMessages = await database.from(tableChat).select("*");
-      console.log(arrayMessages)
-      return arrayMessages;
+      await database.schema.dropTableIfExists(tableChat);
+      await database.schema.createTable(tableChat, (table) => {
+        table.string("autor");
+        table.string("date");
+        table.string("text");
+      });
+      console.log("chat iniciado");
     } catch (error) {
       console.log(error);
     }
   }
+
   // todo| getMessages
   async getMessages(req, res) {
     try {
-      await database.from(tableChat).select("*");
-
-      res.render("chatPage.ejs", { uID });
+      const messages = await database.from(tableChat).select("*");
+      res.render("chatPage.ejs", { messages, uID });
     } catch (error) {
-        console.log(error)
-    //   return res.render("errorUser.ejs");
+      console.log(error);
     }
   }
 
   // todo|   addMessages
   async addMessages(message) {
     try {
-      const { autor, date, text } = message;
-      console.log(autor, date, text);
-      await database(tableChat).insert({ autor, date, text });
-    
+      const { autor, text } = message;
+      const date = new Date();
+      const dateNow = ` ${date.getHours()}: ${date.getMinutes()}: ${date.getSeconds()}`;
+      await database(tableChat).insert({ autor, date: dateNow, text });
     } catch (error) {
-        console.log(error)
-    //   return res.render("errorUser.ejs");
+      console.log(error);
     }
   }
 
@@ -64,8 +49,7 @@ class ChatController {
     try {
       await database(tableChat).del();
     } catch (error) {
-        console.log(error)
-    //   return res.render("errorUser.ejs");
+      console.log(error);
     }
   }
 }
