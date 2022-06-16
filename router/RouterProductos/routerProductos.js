@@ -2,33 +2,30 @@ const express = require("express");
 const routerProducts = express.Router();
 const path = require("path");
 const multer = require("multer");
-const logger = require("../../utils/logger");
 const ProductsController = require("../../controllers/productsController");
 const productController = new ProductsController();
-const {
-  userPermissionsClient,
-  userPermissionsAdmin,
-} = require("../../utils/permissions");
+const { userPermissionsClient,userPermissionsAdmin} = require("../../utils/permissions");
 const { Data } = require("../RouterUser/routerUser");
-const validation = require("../../utils/Middlewares/validationMiddleware");
 const productSchema = require("../../Validations/productValidation");
 const validationProduct = require("../../utils/Middlewares/validationProduct");
-
-routerProducts.use(express.static(path.join(__dirname + "/public")));
-routerProducts.use(express.static("public"));
-routerProducts.use(express.static("views"));
-routerProducts.use(express.static("partials"));
-
+const userPermission = require("../../Validations/userPermission");
 const uID = Data;
-
-//>|  multer config
-
 const storageContent = multer.diskStorage({
   destination: path.join(__dirname + "/public/images"),
   filename: (req, file, cb) => {
     cb(null, file.originalname);
   },
 });
+
+
+routerProducts.use(express.static(path.join(__dirname + "/public")));
+routerProducts.use(express.static("public"));
+routerProducts.use(express.static("views"));
+routerProducts.use(express.static("partials"));
+
+
+
+//>|  multer config
 
 routerProducts.use(
   multer({
@@ -44,19 +41,15 @@ routerProducts.use(
 
 // >| getProducts
 routerProducts.get("/productos/tienda", async (req, res) => {
-  if (!userPermissionsClient(uID.userPermission)) {
-    return res.redirect("/errorRoute");
-  }
-  productController.getProductsClient(req, res);
+  userPermission(userPermissionsClient(uID.userPermission))
+  await productController.getProductsClient(req, res);
 });
 
 //>|  getProductId
 
 routerProducts.get("/productos/producto/:id", async (req, res) => {
-  if (!userPermissionsClient(uID.userPermission)) {
-    return res.redirect("/errorRoute");
-  }
-  productController.getProductId(req, res);
+  userPermission(userPermissionsClient(uID.userPermission))
+  await productController.getProductId(req, res);
 });
 
 //%                   ADMINISTRADOR
@@ -65,20 +58,15 @@ routerProducts.get("/productos/producto/:id", async (req, res) => {
 
 //>| getProducts
 routerProducts.get("/productos/all", async (req, res) => {
-  if (!userPermissionsAdmin(uID.userPermission)) {
-    return res.redirect("/errorRoute");
-  }
-
-  productController.getProductsAdmin(req, res);
+  userPermission(userPermissionsAdmin(uID.userPermission))
+  await productController.getProductsAdmin(req, res);
 });
 
 // >| deleteProduct
 
 routerProducts.get("/productos/delete/:id", async (req, res) => {
-  if (!userPermissionsAdmin(uID.userPermission)) {
-    return res.redirect("/errorRoute");
-  }
-  productController.deleteProduct(req, res);
+  userPermission(userPermissionsAdmin(uID.userPermission))
+  await productController.deleteProduct(req, res);
 });
 
 // >|  postProduct
@@ -87,18 +75,13 @@ routerProducts.post(
   "/productos/form",
   validationProduct(productSchema),
   async (req, res) => {
-    if (!userPermissionsAdmin(uID.userPermission)) {
-      return res.redirect("/errorRoute");
-    }
-    productController.postProduct(req, res);
+    userPermission(userPermissionsAdmin(uID.userPermission))
+    await productController.postProduct(req, res);
   }
 );
 
 routerProducts.get("/productos/form", (req, res) => {
-  if (!userPermissionsAdmin(uID.userPermission)) {
-    return res.redirect("/errorRoute");
-  }
-
+  userPermission(userPermissionsAdmin(uID.userPermission))
   res.render("formAdd.ejs");
 });
 
@@ -108,18 +91,13 @@ routerProducts.post(
   "/productos/update/:id",
   validationProduct(productSchema),
   async (req, res) => {
-    if (!userPermissionsAdmin(uID.userPermission)) {
-      return res.redirect("/errorRoute");
-    }
-    productController.updateProduct(req, res);
+    userPermission(userPermissionsAdmin(uID.userPermission))
+    await productController.updateProduct(req, res);
   }
 );
 
 routerProducts.get("/productos/update/:id", (req, res) => {
-  if (!userPermissionsAdmin(uID.userPermission)) {
-    return res.redirect("/errorRoute");
-  }
-
+  userPermission(userPermissionsAdmin(uID.userPermission))
   res.render("formUpdate.ejs");
 });
 

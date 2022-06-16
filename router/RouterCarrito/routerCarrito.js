@@ -1,53 +1,44 @@
 const express = require("express");
 const routerCarrito = express.Router();
 const path = require("path");
-const logger = require("../../utils/logger");
-const {
-  userPermissionsClient,
-  permissions,
-} = require("../../utils/permissions");
+const { userPermissionsClient } = require("../../utils/permissions");
 const { Data } = require("../RouterUser/routerUser.js");
 const CartController = require("../../controllers/cartsController");
+const userPermission = require("../../Validations/userPermission");
 const cartController = new CartController();
+const uID = Data;
+
 
 routerCarrito.use(express.static(path.join(__dirname + "/public")));
 
-const uID = Data;
 
-// todo| getCart
+
+// >| getCart       
 
 routerCarrito.get("/carrito/productos", async (req, res) => {
-  if (!userPermissionsClient(uID.userPermission)) {
-    return res.redirect("/errorRoute");
-  }
-  cartController.getCart(req, res);
+  userPermission(userPermissionsClient(uID.userPermission));
+  await cartController.getCart(req, res);
 });
 
-// todo| addProductToCart
+//>| addProductToCart
 
 routerCarrito.get("/carrito/add/:IDproducto", async (req, res) => {
-  if (!userPermissionsClient(uID.userPermission)) {
-    return res.redirect("/errorRoute");
-  }
-  cartController.addProductToCart(req, res);
+  userPermission(userPermissionsClient(uID.userPermission));
+  await cartController.addProductToCart(req, res);
 });
 
-// todo| deleteCart
+//>| deleteCart     
 
 routerCarrito.get("/carrito/delete", async (req, res) => {
-  if (!userPermissionsClient(uID.userPermission)) {
-    return res.redirect("/errorRoute");
-  }
-  cartController.deleteCart(req, res);
+  userPermission(userPermissionsClient(uID.userPermission));
+  await cartController.deleteCart(req, res);
 });
 
-// todo| deleteProductToCart
+//>| deleteProductToCart
 
 routerCarrito.get("/carrito/delete/:id", async (req, res) => {
-  if (!userPermissionsClient(uID.userPermission)) {
-    return res.redirect("/errorRoute");
-  }
-  cartController.deleteProductToCart(req, res);
+  userPermission(userPermissionsClient(uID.userPermission));
+  await cartController.deleteProductToCart(req, res);
 });
 
 module.exports = routerCarrito;

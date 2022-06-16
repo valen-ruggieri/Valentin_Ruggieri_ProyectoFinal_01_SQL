@@ -1,49 +1,20 @@
 const options = require("./config/configDB");
 const knex = require("knex");
 const ChatController = require("./controllers/chatController");
-const chatController = new ChatController()
+const chatController = new ChatController();
+const CartController = require("./controllers/cartsController");
+const cartController = new CartController();
+const ProductsController = require("./controllers/productsController");
+const productController = new ProductsController();
+const { UserController } = require("./controllers/usersController");
+const userController = new UserController();
 const initDB = async () => {
-  const db = knex(options.mysql);
+  const db = knex(options.sqlite3);
   try {
-    await db.schema.hasTable("Products").then(async (exists) => {
-      if (!exists) {
-        return await db.schema.createTable("Products", (table) => {
-          table.increments("id").primary();
-          table.string("titulo");
-          table.string("descripcion");
-          table.integer("precio");
-          table.integer("timestamp");
-          table.string("img");
-          table.string("codigo");
-        });
-      }
-    });
-await chatController.initChaT()
-    await db.schema.hasTable("Cart").then(async(exists) => {
-      if (!exists) {
-        return await db.schema.createTable("Cart", (table) => {
-          table.increments("id").primary();
-          table.string("titulo");
-          table.string("descripcion");
-          table.integer("timestamp");
-          table.integer("precio");
-          table.string("img");
-          table.string("codigo");
-        });
-      }
-    });
-  
-    await db.schema.hasTable("Users").then(async(exists) => {
-      if (!exists) {
-        return await db.schema.createTable("Users", (table) => {
-      table.increments("id").primary();
-      table.string("userName");
-      table.string("email");
-      table.string("password");
-      table.string("userType");
-    });
-  }
-});
+    await chatController.initChaT();
+    await productController.initProducts();
+    await userController.initUser();
+    await cartController.initCart();
   } catch (err) {
     console.log(err);
   }
@@ -52,9 +23,9 @@ await chatController.initChaT()
 const deleteDB = async () => {
   const db = knex(options.mysql);
   try {
-    await chatController.deleteChat()
-    await db.schema.dropTableIfExists("Cart");
-    await db.schema.dropTableIfExists("Users");
+    await chatController.deleteChat();
+    await cartController.deleteCart();
+    await userController.deleteUser();
   } catch (err) {
     console.log(err);
   }

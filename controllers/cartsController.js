@@ -1,14 +1,43 @@
 const knex = require("knex");
 const options = require("../config/configDB");
 const { userData } = require("./usersController");
-const database = knex(options.mysql);
+const database = knex(options.sqlite3);
 const tableCart = "Cart";
 const uID = userData;
 
 class CartController {
-  constructor() {}
+  // >| initCart
+  async initCart() {
+    try {
+      await database.schema.hasTable(tableCart).then(async (exists) => {
+        if (!exists) {
+          return await database.schema.createTable(tableCart, (table) => {
+            table.increments("id").primary();
+            table.string("titulo");
+            table.string("descripcion");
+            table.integer("timestamp");
+            table.integer("precio");
+            table.string("img");
+            table.string("codigo");
+          });
+        }
+      });
+    } catch (error) {
+      console.log(error);
+      return res.redirect("/errorRoute");
+    }
+  }
 
-  // todo| getCart
+  // >| deleteCart
+  async deleteCart() {
+    try {
+      await database.schema.dropTableIfExists(tableCart);
+    } catch (error) {
+      console.log(error);
+      return res.redirect("/errorRoute");
+    }
+  }
+  // >| getCart
   async getCart(req, res) {
     try {
       const productosCarrito = await database.from(tableCart).select("*");
@@ -19,7 +48,7 @@ class CartController {
     }
   }
 
-  // todo| addProductToCart
+  // >| addProductToCart
   async addProductToCart(req, res) {
     try {
       let producto = await database
@@ -35,7 +64,7 @@ class CartController {
     }
   }
 
-  // todo| deleteCart
+  // >| deleteCart
   async deleteCart(req, res) {
     try {
       await database(tableCart).del();
@@ -46,7 +75,7 @@ class CartController {
     }
   }
 
-  // todo| deleteProductToCart
+  // >| deleteProductToCart
   async deleteProductToCart(req, res) {
     try {
       console.log(req.params.id);

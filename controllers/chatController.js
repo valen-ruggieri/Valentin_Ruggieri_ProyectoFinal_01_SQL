@@ -6,11 +6,10 @@ const tableChat = "Chat";
 const uID = userData;
 
 class ChatController {
-  // todo|   inintChat
+  // >|   inintChat
 
   async initChaT() {
     try {
-    
       await database.schema.createTable(tableChat, (table) => {
         table.string("autor");
         table.string("date");
@@ -22,15 +21,15 @@ class ChatController {
     }
   }
 
-  async deleteChat(){
-   try {
-    await database.schema.dropTableIfExists(tableChat);
-   } catch (error) {
-    console.log(error);
-   }
+  async deleteChat() {
+    try {
+      await database.schema.dropTableIfExists(tableChat);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
-  // todo| getMessages
+  // >| getMessages
   async getMessages(req, res) {
     try {
       const messages = await database.from(tableChat).select("*");
@@ -40,7 +39,7 @@ class ChatController {
     }
   }
 
-  // todo|   addMessages
+  // >|  addMessages
   async addMessages(message) {
     try {
       const { autor, text } = message;
@@ -52,7 +51,7 @@ class ChatController {
     }
   }
 
-  // todo|   deleteMessages
+  // >|  deleteMessages
   async deleteMessages() {
     try {
       await database(tableChat).del();

@@ -1,11 +1,43 @@
 const knex = require("knex");
 const options = require("../config/configDB");
 const { userData } = require("./usersController");
-const database = knex(options.mysql);
+const database = knex(options.sqlite3);
 const tableProducts = "Products";
 const uID = userData;
 
 class ProductsController {
+  //>|  initHome
+  async initProducts() {
+    try {
+      await database.schema.hasTable(tableProducts).then(async (exists) => {
+        if (!exists) {
+          return await database.schema.createTable(tableProducts, (table) => {
+            table.increments("id").primary();
+            table.string("titulo");
+            table.string("descripcion");
+            table.integer("timestamp");
+            table.integer("precio");
+            table.string("img");
+            table.string("codigo");
+          });
+        }
+      });
+    } catch (error) {
+      console.log(error);
+      return res.redirect("/errorRoute");
+    }
+  }
+
+  //>|  deleteProducts
+  async deleteProducs() {
+    try {
+      await database.schema.dropTableIfExists(tableProducts);
+    } catch (error) {
+      console.log(error);
+      return res.redirect("/errorRoute");
+    }
+  }
+
   //>|  getProductsClient
   async getProductsClient(req, res) {
     try {
