@@ -1,4 +1,4 @@
-const socket = io();
+
 const inputAutor = document.querySelector("#autorEmail");
 const inputText = document.querySelector("#message");
 const submit = document.querySelector("#submit");

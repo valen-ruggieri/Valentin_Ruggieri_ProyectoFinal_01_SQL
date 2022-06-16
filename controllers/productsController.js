@@ -3,12 +3,9 @@ const options = require("../config/configDB");
 const { userData } = require("./usersController");
 const database = knex(options.mysql);
 const tableProducts = "Products";
-
 const uID = userData;
 
 class ProductsController {
-  constructor() {}
-
   //>|  getProductsClient
   async getProductsClient(req, res) {
     try {

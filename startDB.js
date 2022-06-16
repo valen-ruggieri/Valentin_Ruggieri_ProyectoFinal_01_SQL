@@ -1,6 +1,7 @@
 const options = require("./config/configDB");
 const knex = require("knex");
-
+const ChatController = require("./controllers/chatController");
+const chatController = new ChatController()
 const initDB = async () => {
   const db = knex(options.mysql);
   try {
@@ -17,7 +18,7 @@ const initDB = async () => {
         });
       }
     });
-
+await chatController.initChaT()
     await db.schema.hasTable("Cart").then(async(exists) => {
       if (!exists) {
         return await db.schema.createTable("Cart", (table) => {
@@ -31,7 +32,7 @@ const initDB = async () => {
         });
       }
     });
-
+  
     await db.schema.hasTable("Users").then(async(exists) => {
       if (!exists) {
         return await db.schema.createTable("Users", (table) => {
@@ -51,6 +52,7 @@ const initDB = async () => {
 const deleteDB = async () => {
   const db = knex(options.mysql);
   try {
+    await chatController.deleteChat()
     await db.schema.dropTableIfExists("Cart");
     await db.schema.dropTableIfExists("Users");
   } catch (err) {

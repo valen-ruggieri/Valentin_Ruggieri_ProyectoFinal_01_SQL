@@ -10,7 +10,7 @@ class ChatController {
 
   async initChaT() {
     try {
-      await database.schema.dropTableIfExists(tableChat);
+    
       await database.schema.createTable(tableChat, (table) => {
         table.string("autor");
         table.string("date");
@@ -20,6 +20,14 @@ class ChatController {
     } catch (error) {
       console.log(error);
     }
+  }
+
+  async deleteChat(){
+   try {
+    await database.schema.dropTableIfExists(tableChat);
+   } catch (error) {
+    console.log(error);
+   }
   }
 
   // todo| getMessages

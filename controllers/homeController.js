@@ -10,6 +10,7 @@ class HomeController {
     try {
       await deleteDB();
       await initDB();
+      
       return res.render("home.ejs");
     } catch (error) {
       const errorName = "Failed create table users";

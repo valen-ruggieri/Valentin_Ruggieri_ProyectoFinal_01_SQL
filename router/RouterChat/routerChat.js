@@ -11,7 +11,7 @@ routerChat.use(express.static(path.join(__dirname + "/public")));
 routerChat.use(express.static("views"));
 
 const uID = Data;
-
+chatController.initChaT()
 routerChat.post("/chat", (req, res) => {
   if (!userPermissionsClient(uID.userPermission)) {
     return res.redirect("/errorRoute");
