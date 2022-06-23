@@ -45,7 +45,7 @@ Los errores contemplados en nuestro ecommerce son:
   - Sqlite3 para poder almacenar los mensagges del chat e interactuar con ellos.
  
  ## Especificaciones extras
-  - Para poder realizar un inicio de sesion utilizamos la informacion brindada en el registro del usuario, la cual es almacenada en firestore para luego ser accedida y de alli poder obtener el id de usuario y los permisos del mismo y guardarlos en una variable la cual usaremos para validar las rutas y mostar informacion del mismo.
+  - Para poder realizar un inicio de sesion utilizamos la informacion brindada en el registro del usuario, la cual es almacenada en la base de datos para luego ser accedida y de alli poder obtener el id de usuario y los permisos del mismo y guardarlos en una variable la cual usaremos para validar las rutas y mostar informacion del mismo.
   - Utilizamos plantillas para pooder manejar renderizados condicionales en algunas vistas y el renderizado de nuestros productos en otras.
   - El carrito de productos solo puede ser creado por el usuario cliente y esta alejado del alcance del administrador, este mismo carrito sera guardado dentro de usuario en la base de datos.
 
